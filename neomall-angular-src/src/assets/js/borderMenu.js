@@ -30,6 +30,7 @@
 				classie.add( menu, 'bt-menu-close' );
 			},
 			closeClickFn = function( ev ) {
+				document.getElementById('menu-ul').style.display = "none";
 				resetMenu();
 				overlay.removeEventListener( eventtype, closeClickFn );
 			};
@@ -40,7 +41,7 @@
 		
 
 		trigger.addEventListener( eventtype, function( ev ) {
-			
+			document.getElementById('menu-ul').style.display = "block";
 
 			ev.stopPropagation();
 			ev.preventDefault();
