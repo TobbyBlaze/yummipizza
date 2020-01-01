@@ -4,7 +4,7 @@
             <div class="row justify-content-center align-items-center vh-md-100">
                 <div class="col-md-10 col-lg-5">
                     <accordion [closeOthers]="oneAtatime" [isAnimated]="true">
-                        <accordion-group [isOpen] = "isOpen" class="card active">
+                        <accordion-group [isOpen] = "isOpen">
                             <div accordion-heading class="card-header" id="headingOne">
                                 <h2 class="mb-0">
                                     <button class="btn btn-link" (click)="isOpen = !isOpen" type="button" data-toggle="collapse"
@@ -16,7 +16,7 @@
     
                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                                 data-parent="#accordionExample">
-                                <div class="card-body">
+                                <div>
                                     <div class="row mt-2">
                                         <div class="form-group col-12">
                                             <label for="exampleInputEmail1">Email address</label>
@@ -39,7 +39,7 @@
                                 </div>
                             </div>
                         </accordion-group>
-                        <accordion-group class="card">
+                        <accordion-group>
                             <div accordion-heading id="headingTwo">
                                 <h2 class="mb-0">
                                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
@@ -50,7 +50,7 @@
                             </div>
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                                 data-parent="#accordionExample">
-                                <div >
+                                <div>
                                     <div class="row mt-2">
                                         <div class="form-group col-12">
                                             <label for="exampleInputEmail2">Email address</label>

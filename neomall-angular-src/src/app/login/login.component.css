@@ -1,0 +1,8 @@
+accordion-group {
+    background-color: white;
+}
+
+button.btn.btn-link.collapsed::before {
+    content:'\eb83';
+    font-size:1.375rem;
+}
