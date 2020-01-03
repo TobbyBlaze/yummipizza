@@ -27,7 +27,7 @@
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne">
                             <div>
                                 <div class="row mt-2">
-                                    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                                    <form class="col-12" [formGroup]="loginForm" (ngSubmit)="onLogin()">
                                         <div class="form-group col-12">
                                             <label for="Email1">Email address</label>
                                             <input formControlName="email" type="email" class="form-control" 
@@ -75,7 +75,7 @@
                         <div id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionExample">
                             <div>
                                 <div class="row mt-2">
-                                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                                    <form class="col-12" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                                         <div class="form-group col-12">
                                             <label for="Email2">Email address</label>
                                             <input formControlName="email" type="email" class="form-control" >

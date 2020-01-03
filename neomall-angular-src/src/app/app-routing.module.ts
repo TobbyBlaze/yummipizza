@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ShopComponent } from './shop/shop.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
   { 
@@ -32,7 +33,16 @@ const routes: Routes = [
   { 
     path: 'login', 
     loadChildren: () => import('./login/login.module').then(m => m.LoginModule) 
+  },
+  { 
+    path: 'product/:id', 
+    loadChildren: () => import('./product/product.module').then(m => m.ProductModule) 
+  },
+  {
+    path: '**',
+    component: PagenotfoundComponent
   }
+  
 ];
 
 @NgModule({

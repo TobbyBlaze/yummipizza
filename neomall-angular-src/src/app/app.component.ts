@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { NavigationCancel, NavigationEnd, Event, NavigationError, NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
+
+  constructor(private ngxService:NgxUiLoaderService, public router: Router){
+    this.router.events.subscribe((event: Event)=>{
+      this.navigationInterceptor(event);
+    });
+  }
+
+
   ngOnInit(): void {
     var menu = document.getElementById('bt-menu');
     var overlay = document.createElement('div');
@@ -99,6 +110,25 @@ export class AppComponent implements OnInit {
       classie().remove(menu, 'bt-menu-close');
       classie().add(menu, 'bt-menu-open');
       overlay.addEventListener(eventtype, closeClickFn);
+    }
+  }
+
+  private navigationInterceptor(event: Event): void {
+
+    if(event instanceof NavigationStart) {
+      this.ngxService.start();
+    }
+
+    if(event instanceof NavigationEnd) {
+      this.ngxService.stop();
+    }
+
+    if(event instanceof NavigationCancel) {
+      this.ngxService.stop();
+    }
+
+    if(event instanceof NavigationError) {
+      this.ngxService.stop();
     }
   }
 

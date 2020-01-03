@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row no-gutters">
             <nav class="navbar navbar-expand-md navbar-expand-lg navbar-dark">
-                <a href="/home" class="navbar-brand"><img src="assets/images/logo.svg" alt="Logo">
+                <a routerLink="/home" class="navbar-brand"><img src="assets/images/logo.svg" alt="Logo">
                 </a>
                 <button (click)="menu($event)" class="trigger d-flex d-md-none d-lg-none" style="background-color: transparent; border:none;">
                     <span class="navbar-toggler-icon"></span>
@@ -11,27 +11,27 @@
 
                 <ul class="navbar-nav ml-auto mt-md-0 d-none d-md-flex">
                     <li class="nav-item px-2">
-                        <a class="nav-link" href="/shop" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link" routerLink="/shop" aria-haspopup="true" aria-expanded="false">
                             Shop
                         </a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link" href="/cart" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link" routerLink="/cart" aria-haspopup="true" aria-expanded="false">
                             Cart
                         </a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link" href="/profile" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link" routerLink="/profile" aria-haspopup="true" aria-expanded="false">
                             Profile
                         </a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link" href="/pages" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link" routerLink="/pages" aria-haspopup="true" aria-expanded="false">
                             Pages
                         </a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link" href="/blog" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link" routerLink="/blog" aria-haspopup="true" aria-expanded="false">
                             Blog
                         </a>
                     </li>
@@ -43,6 +43,7 @@
     </div>
 </header>
 
+<ngx-ui-loader></ngx-ui-loader>
 <router-outlet></router-outlet>
 
 <footer class="bg-dark text-white py-0">
@@ -110,7 +111,7 @@
     <ul id="menu-ul">
         <li>Logo</li>
         <li>
-            <a href="/home">
+            <a routerLink="/home">
                 <span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 64 64"
                         aria-labelledby="title" aria-describedby="desc" role="img"
@@ -121,11 +122,11 @@
                             stroke-linejoin="round"></path>
                     </svg>
                 </span>
-                <span>Home</span>
+                <span class="p-1">Home</span>
             </a>
         </li>
         <li>
-            <a href="/shop">
+            <a routerLink="/shop">
                 <span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 64 64"
                         aria-labelledby="title" aria-describedby="desc" role="img"
@@ -140,11 +141,11 @@
                     </svg>
                 </span>
 
-                <span>Shop</span>
+                <span class="p-1">Shop</span>
             </a>
         </li>
         <li>
-            <a href="/cart">
+            <a routerLink="/cart">
                 <span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 64 64"
                         aria-labelledby="title" aria-describedby="desc" role="img"
@@ -166,10 +167,10 @@
                     </svg>
                 </span>
 
-                <span>Cart</span>
+                <span class="p-1">Cart</span>
             </a>
         </li>
-        <li><a href="/profile">
+        <li><a routerLink="/profile">
                 <span>
                     <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
                         aria-labelledby="title" aria-describedby="desc" role="img"
@@ -188,7 +189,7 @@
                 <span>Profile</span>
             </a>
         </li>
-        <li><a href="/pages">
+        <li><a routerLink="/pages">
                 <span>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="24px" height="24px"
                         aria-labelledby="title" aria-describedby="desc" role="img"
@@ -203,10 +204,10 @@
                         </circle>
                     </svg>
                 </span>
-                <span>Pages</span>
+                <span class="p-1">Pages</span>
             </a>
         </li>
-        <li><a href="/blog">
+        <li><a routerLink="/blog">
                 <span>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="24px" height="24px"
                         aria-labelledby="title" aria-describedby="desc" role="img"
@@ -221,10 +222,10 @@
                         </path>
                     </svg>
                 </span>
-                <span>Blog</span>
+                <span class="p-1">Blog</span>
             </a>
         </li>
-        <li><a href="/login">
+        <li><a routerLink="/login">
                 <span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 64 64"
                         aria-labelledby="title" aria-describedby="desc" role="img"
@@ -235,7 +236,7 @@
                             stroke-linecap="round"></path>
                     </svg>
                 </span>
-                <span>Login</span>
+                <span class="p-1">Login</span>
             </a>
         </li>
         <li>
