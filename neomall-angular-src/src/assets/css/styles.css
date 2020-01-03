@@ -119,6 +119,7 @@ body  {
 
 #menu-ul {
 	display: none;
+	
 }
 
 @media screen and (max-height: 480px){

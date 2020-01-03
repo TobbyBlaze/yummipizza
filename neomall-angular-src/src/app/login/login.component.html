@@ -1,78 +1,106 @@
-<section class="py-md-0">
-        <div class="image image-overlay" style="background-image:url(../../assets/images/background-2.jpg)"></div>
-        <div class="container">
-            <div class="row justify-content-center align-items-center vh-md-100">
-                <div class="col-md-10 col-lg-5">
-                    <accordion [closeOthers]="oneAtatime" [isAnimated]="true">
-                        <accordion-group [isOpen] = "isOpen">
-                            <div accordion-heading class="card-header" id="headingOne">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link" (click)="isOpen = !isOpen" type="button" data-toggle="collapse"
-                                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Sign In
-                                    </button>
-                                </h2>
-                            </div>
-    
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                                data-parent="#accordionExample">
-                                <div>
-                                    <div class="row mt-2">
+<title>{{title}}</title>
+
+
+<section class="py-md-0" style="padding:200px 0;">
+    <div class="image image-overlay" style="background-image:url(../../assets/images/background-2.jpg)"></div>
+    <div class="container">
+        <div class="row justify-content-center align-items-center vh-md-100">
+            <div class="col-md-10 col-lg-5">
+                <accordion [closeOthers]="oneAtatime" [isAnimated]="true">
+                    <accordion-group [isOpen]="isOpen">
+                        <div accordion-heading id="headingOne">
+                            <h2 class="mb-0">
+                                <button *ngIf="isOpen == true" class="btn btn-link text-dark" type="button"
+                                    data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                                    aria-controls="collapseOne">
+                                    Sign In
+                                </button>
+
+                                <button *ngIf="isOpen != true" class="btn btn-link collapsed text-dark" type="button"
+                                    data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                                    aria-controls="collapseOne">
+                                    Sign In
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne">
+                            <div>
+                                <div class="row mt-2">
+                                    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
                                         <div class="form-group col-12">
-                                            <label for="exampleInputEmail1">Email address</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1">
+                                            <label for="Email1">Email address</label>
+                                            <input formControlName="email" type="email" class="form-control" 
+                                            [ngClass]="{'is-invalid': submitted && formControl2.email.errors}">
                                         </div>
                                         <div class="form-group col-12 mt-1">
-                                            <label for="exampleInputPassword1">Password</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1">
+                                            <label for="Password1">Password</label>
+                                            <input formControlName="password" type="password" class="form-control"
+                                            [ngClass]="{'is-invalid': submitted && formControl2.password.errors}">
                                         </div>
                                         <div class="col-12 mt-1">
                                             <div class="custom-control custom-switch mb-2">
-                                                <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                                                <input formControlName="remember_me" type="checkbox" class="custom-control-input" id="customSwitch1">
                                                 <label class="custom-control-label" for="customSwitch1">Remember Me</label>
                                             </div>
                                         </div>
-                                        <div class="col-12 mt-2">
-                                            <a href="#!" class="btn btn-block btn-primary">Log In</a>
+                                        <div *ngIf="loginForm.invalid" class="col-12 mt-2">
+                                            <button type="submit" class="btn btn-block btn-primary" disabled>Log In</button>
                                         </div>
-                                    </div>
+                                        <div *ngIf="!loginForm.invalid" class="col-12 mt-2">
+                                            <button type="submit" class="btn btn-block btn-primary">Log In</button>
+                                        </div>
+                                    </form> 
                                 </div>
                             </div>
-                        </accordion-group>
-                        <accordion-group>
-                            <div accordion-heading id="headingTwo">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Create Account
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                data-parent="#accordionExample">
-                                <div>
-                                    <div class="row mt-2">
+                        </div>
+                    </accordion-group>
+                    <accordion-group>
+                        <div accordion-heading id="headingTwo">
+                            <h2 class="mb-0">
+                                <button *ngIf="isOpen == true" class="btn btn-link text-dark"  type="button" data-toggle="collapse"
+                                    data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Create Account
+                                </button>
+
+                                <button *ngIf="isOpen != true" class="btn btn-link collapsed text-dark" type="button" data-toggle="collapse"
+                                    data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Create Account
+                                </button>
+                                
+                            </h2>
+                        </div>
+
+
+                        <div id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <div>
+                                <div class="row mt-2">
+                                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                                         <div class="form-group col-12">
-                                            <label for="exampleInputEmail2">Email address</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail2">
+                                            <label for="Email2">Email address</label>
+                                            <input formControlName="email" type="email" class="form-control" >
                                         </div>
                                         <div class="form-group col-12 mt-1">
-                                            <label for="exampleInputPassword3">Password</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword3">
+                                            <label for="Password3">Password</label>
+                                            <input formControlName="password" type="password" class="form-control" >
                                         </div>
                                         <div class="form-group col-12 mt-1">
-                                            <label for="exampleInputPassword4">Repeat Password</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword4">
+                                            <label for="Password4">Repeat Password</label>
+                                            <input formControlName="repeat_password" type="password" class="form-control" >
                                         </div>
-                                        <div class="col-12 mt-2">
-                                            <a href="#!" class="btn btn-block btn-primary">Register</a>
+                                        <div *ngIf="registerForm.invalid" class="col-12 mt-2">
+                                            <button type="submit" class="btn btn-block btn-primary" disabled>Register</button>
                                         </div>
-                                    </div>
+                                        <div *ngIf="!registerForm.invalid" class="col-12 mt-2">
+                                            <button type="submit" class="btn btn-block btn-primary">Register</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
-                        </accordion-group>
-                    </accordion>
-                </div>
+                        </div>
+                    </accordion-group>
+                </accordion>
             </div>
         </div>
-    </section>
+    </div>
+</section>

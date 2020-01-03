@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from "@angular/forms";
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 
 import { LoginRoutingModule } from './login-routing.module';
@@ -11,6 +12,7 @@ import { LoginComponent } from './login.component';
   imports: [
     CommonModule,
     LoginRoutingModule,
+    ReactiveFormsModule,
     AccordionModule.forRoot()
   ]
 })

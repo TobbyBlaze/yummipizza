@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from "@angular/forms";
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     TabsModule.forRoot(),
     AccordionModule.forRoot()
   ],

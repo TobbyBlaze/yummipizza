@@ -1,8 +1,38 @@
 accordion-group {
     background-color: white;
+    color: black;
 }
 
 button.btn.btn-link.collapsed::before {
-    content:'\eb83';
+    content:'\002B';
     font-size:1.375rem;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+    -webkit-transition-delay: 0s;
+    -moz-transition-delay: 0s;
+    transition-delay: 0s;
+    position: absolute;
+    width: 1em;
+    line-height: 1em;
+    right: 1.875rem;
+    margin-top: -0.5em;
+    color: #555;
+}
+
+button.btn.btn-link::before {
+    content:'\00D7';
+    font-size:1.375rem;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+    -webkit-transition-delay: 0s;
+    -moz-transition-delay: 0s;
+    transition-delay: 0s;
+    position: absolute;
+    width: 1em;
+    line-height: 1em;
+    right: 1.875rem;
+    margin-top: -0.5em;
+    color: #555;
 }
