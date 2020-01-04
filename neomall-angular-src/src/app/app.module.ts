@@ -4,12 +4,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from "@angular/forms";
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ShopComponent } from './shop/shop.component';
+
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { OwlModule } from 'ngx-owl-carousel';
+
+import { AppComponent } from './app.component';
+import { ShopComponent } from './shop/shop.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const ngxUiConfig: NgxUiLoaderConfig = {
@@ -34,11 +39,15 @@ const ngxUiHttpConfig: NgxUiLoaderHttpConfig = {
     BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    OwlModule,
     NgxUiLoaderModule.forRoot(ngxUiConfig),
     NgxUiLoaderRouterModule,
     NgxUiLoaderHttpModule.forRoot(ngxUiHttpConfig),
     TabsModule.forRoot(),
-    AccordionModule.forRoot()
+    AccordionModule.forRoot(),
+    ModalModule.forRoot(),
+    CarouselModule.forRoot(),
+    BsDropdownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -31,12 +31,12 @@
                                         <div class="form-group col-12">
                                             <label for="Email1">Email address</label>
                                             <input formControlName="email" type="email" class="form-control" 
-                                            [ngClass]="{'is-invalid': submitted && formControl2.email.errors}">
+                                            [ngClass]="{'is-invalid': formControl2.email.errors}">
                                         </div>
                                         <div class="form-group col-12 mt-1">
                                             <label for="Password1">Password</label>
                                             <input formControlName="password" type="password" class="form-control"
-                                            [ngClass]="{'is-invalid': submitted && formControl2.password.errors}">
+                                            [ngClass]="{'is-invalid': formControl2.password.errors}">
                                         </div>
                                         <div class="col-12 mt-1">
                                             <div class="custom-control custom-switch mb-2">
