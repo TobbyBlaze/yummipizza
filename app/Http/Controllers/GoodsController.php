@@ -7,8 +7,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use lluminate\Database\Eloquent\Collection\visits;
 use App\Good;
+use App\Cart;
+use App\Review;
 use App\User;
-use App\Notifications\newGood;
+use App\Notifications\NewCart;
+use App\Notifications\NewReview;
 use Auth;
 use DB;
 
@@ -22,35 +25,18 @@ class GoodsController extends Controller
     public function index()
     {
         $user = User::find(auth::user()->id);
-        $users = User::where('users.status', '!=', auth()->user()->status)->orWhere('users.department', '=', auth()->user()->department)->orWhere('users.school', '=', auth()->user()->school)->orWhere('users.college', '=', auth()->user()->college)->orderBy('users.created_at', 'desc')->paginate(10);
-
-        // $goods = good::orderBy('goods.updated_at', 'desc')->paginate(20);
-        // $goods = Good::orderBy('goods.updated_at', 'desc')
-        // ->select('goods.*')
-        // ->join('followers', 'followers.leader_id', '=', 'goods.user_id')
-        // // ->where([['followers.follower_id', '=', $user->id], ['goods.user_id', '=', '1']])
-        // // ->where('goods.user_id', $user->id)
-        // ->where('followers.follower_id', $user->id)
-        // ->paginate(20);
 
         $goods = Good::orderBy('goods.updated_at', 'desc')
         ->paginate(20);
 
-        // dd($goods);
-
-        $comments = Comment::orderBy('comments.updated_at', 'desc')
+        $reviews = Review::orderBy('reviews.updated_at', 'desc')
         ->paginate(20);
-
-        // return view('goods.index', compact('user', 'users', 'followers' , 'followings', 'goods'), ['user' => $user])->with('goods', $goods)->with('user', $user)->with('comments', $comments);
 
         $data = [
 
             'user' => $user,
-            'users' => $users,
             'goods'=>$goods,
-            'follower' => $followers,
-            'followings' => $followings,
-            'comments' => $comments,
+            'reviews' => $reviews,
 
         ];
 
@@ -75,53 +61,62 @@ class GoodsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, ['body' => 'required']);
-        //return 123; 'image' => , 'file' => 'nullable|max:6000'
 
-        // $good = good::create($request->all());
-        // return response()->json($good, 201);
+        $user = User::find(auth::user()->id);
 
-        if($request->hasFile('file')){
-            $filenameWithExt = $request->file('file')->getClientOriginalName();
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            $extension = $request->file('file')->getClientOriginalExtension();
-            $filenameToStore = $filename.'_'.time().'.'.$extension;
-            //$path = $request->file('file')->storeAs('public/files/documents', $filenameToStore);
+        if($user->status == "Seller"){
+
+            $this->validate($request, ['name' => 'required']);
+            //return 123; 'image' => , 'file' => 'nullable|max:6000'
+
+            // $good = good::create($request->all());
+            // return response()->json($good, 201);
+
+            if($request->hasFile('file')){
+                $filenameWithExt = $request->file('file')->getClientOriginalName();
+                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                $extension = $request->file('file')->getClientOriginalExtension();
+                $filenameToStore = $filename.'_'.time().'.'.$extension;
+                //$path = $request->file('file')->storeAs('public/files/documents', $filenameToStore);
+                
+                if($extension == "jpg" || $extension == "jpeg" || $extension == "png" || $extension == "gif"){
+                    $path = $request->file('file')->storeAs('public/files/images', $filenameToStore);
+                }
+
+                //create good
+
+                $good = new Good;
+                $good->name = $request->input('name');
+                $good->description = $request->input('description');
+                $good->price = $request->input('price');
+                $good->user_id = auth()->user()->id;
             
-            if($extension == "jpg" || $extension == "jpeg" || $extension == "png" || $extension == "gif"){
-                $path = $request->file('file')->storeAs('public/files/images', $filenameToStore);
+                if($extension == "jpg" || $extension == "jpeg" || $extension == "png" || $extension == "gif"){
+                    $good->image = $filenameToStore;
+                }
+                
+                $good->save();
+
+                // return redirect('/')->with('success', 'good created successfully');
+                return response()->json($good, 201);
+                
+            }else{
+                $filenameToStore = 'NoFile';
+
+                //create good
+
+                $good = new Good;
+                $good->name = $request->input('name');
+                $good->description = $request->input('description');
+                $good->price = $request->input('price');
+                $good->user_id = auth()->user()->id;
+            
+                $good->save();
+
+                // return redirect('/')->with('success', 'good created successfully');
+                return response()->json($good, 201);
             }
 
-            //create good
-
-            $good = new Good;
-            $good->title = $request->input('title');
-            $good->body = $request->input('body');
-            $good->user_id = auth()->user()->id;
-           
-            if($extension == "jpg" || $extension == "jpeg" || $extension == "png" || $extension == "gif"){
-                $good->image = $filenameToStore;
-            }
-            
-            $good->save();
-
-            // return redirect('/')->with('success', 'good created successfully');
-            return response()->json($good, 201);
-            
-        }else{
-            $filenameToStore = 'NoFile';
-
-            //create good
-
-            $good = new Good;
-            $good->title = $request->input('title');
-            $good->body = $request->input('body');
-            $good->user_id = auth()->user()->id;
-           
-            $good->save();
-
-            // return redirect('/')->with('success', 'good created successfully');
-            return response()->json($good, 201);
         }
 
     }
@@ -152,7 +147,7 @@ class GoodsController extends Controller
             'updated_at' => \DB::raw('updated_at')   
         ]);
 
-        $comments = Comment::orderBy('comments.updated_at', 'desc')
+        $reviews = Review::orderBy('reviews.updated_at', 'desc')
         ->paginate(20);
 
         $good_data = [
@@ -160,7 +155,7 @@ class GoodsController extends Controller
             'goods' => '$goods',
             'user' => '$user',
             'users' => '$users',
-            'comments' => '$comments',
+            'reviews' => '$reviews',
         ];
 
         return response()->json($good_data);
@@ -210,63 +205,69 @@ class GoodsController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $user = User::find(auth::user()->id);
         $good = Good::find($id);
-        // $good->update($request->all());
-        // return response()->json($good, 200);
 
-        $this->validate($request, ['body' => 'required']);
-        //return 123;
+        if($user->status == "Seller"){
 
-        if($request->hasFile('file')){
-            $filenameWithExt = $request->file('file')->getClientOriginalName();
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            $extension = $request->file('file')->getClientOriginalExtension();
-            $filenameToStore = $filename.'_'.time().'.'.$extension;
-            //$path = $request->file('file')->storeAs('public/files/documents', $filenameToStore);
             
-            if($extension == "jpg" || $extension == "jpeg" || $extension == "png" || $extension == "gif"){
-                $path = $request->file('file')->storeAs('public/files/images', $filenameToStore);
-            }elseif ($extension == "doc" || $extension == "docx" || $extension == "pdf" || $extension == "zip" || $extension == "rar" || $extension == "pptx" || $extension == "tex" || $extension == "txt") {
-                $path = $request->file('file')->storeAs('public/files/documents', $filenameToStore);
+            // $good->update($request->all());
+            // return response()->json($good, 200);
+
+            $this->validate($request, ['name' => 'required']);
+            //return 123;
+
+            if($request->hasFile('file')){
+                $filenameWithExt = $request->file('file')->getClientOriginalName();
+                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                $extension = $request->file('file')->getClientOriginalExtension();
+                $filenameToStore = $filename.'_'.time().'.'.$extension;
+                //$path = $request->file('file')->storeAs('public/files/documents', $filenameToStore);
+                
+                if($extension == "jpg" || $extension == "jpeg" || $extension == "png" || $extension == "gif"){
+                    $path = $request->file('file')->storeAs('public/files/images', $filenameToStore);
+                }
+
+                //update good
+
+                $good = Good::find($id);
+                $good->name = $request->input('name');
+                $good->description = $request->input('description');
+                $good->price = $request->input('price');
+                $good->user_id = auth()->user()->id;
+                //$good->document = $filenameToStore;
+
+                //$extension = $request->file('file')->getClientOriginalExtension();
+                
+                if($extension == "jpg" || $extension == "jpeg" || $extension == "png" || $extension == "gif"){
+                    $good->image = $filenameToStore;
+                }
+                
+                $good->save();
+
+                // return redirect()->back()->with('success', 'good created successfully');
+                return response()->json($good, 201);
+                
+                
+            }else{
+                $filenameToStore = 'NoFile';
+
+                //update good
+
+                $good = Good::find($id);
+                $good->name = $request->input('name');
+                $good->description = $request->input('description');
+                $good->price = $request->input('price');
+                $good->user_id = auth()->user()->id;
+                //$good->document = $filenameToStore;
+                
+                $good->save();
+
+                // return redirect()->back()->with('success', 'good updated successfully');
+                return response()->json($good, 201);
             }
 
-            //create good
-
-            $good = Good::find($id);
-            $good->title = $request->input('title');
-            $good->body = $request->input('body');
-            $good->user_id = auth()->user()->id;
-            //$good->document = $filenameToStore;
-
-            //$extension = $request->file('file')->getClientOriginalExtension();
-            
-            if($extension == "jpg" || $extension == "jpeg" || $extension == "png" || $extension == "gif"){
-                $good->image = $filenameToStore;
-            }elseif ($extension == "doc" || $extension == "docx" || $extension == "pdf" || $extension == "zip" || $extension == "rar" || $extension == "pptx" || $extension == "tex" || $extension == "txt") {
-                $good->file = $filenameToStore;
-            }
-            
-            $good->save();
-
-            // return redirect()->back()->with('success', 'good created successfully');
-            return response()->json($good, 201);
-            
-            
-        }else{
-            $filenameToStore = 'NoFile';
-
-            //update good
-
-            $good = Good::find($id);
-            $good->title = $request->input('title');
-            $good->body = $request->input('body');
-            $good->user_id = auth()->user()->id;
-            //$good->document = $filenameToStore;
-            
-            $good->save();
-
-            // return redirect()->back()->with('success', 'good updated successfully');
-            return response()->json($good, 201);
         }
 
     }

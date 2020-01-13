@@ -5,11 +5,11 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 
-class Good extends Model
+class Review extends Model
 {
     use Notifiable;
     //Table name
-    protected $table = 'goods';
+    protected $table = 'reviews';
     //Primary Key
     public $primaryKey = 'id';
     //Timestamps
@@ -18,26 +18,17 @@ class Good extends Model
     protected $fillable = [
         // 'id',
         'user_id',
-        'name',
-        'description',
-        'image',
-        'price',
+        'good_id',
+        'rating',
+        'body',
     ];
 
     public function user(){
         return $this->belongsTo('App\User');
     }
 
-    public function goods(){
-        return $this->belongsTo('App\User');
-    }
-
-    public function cartgoods(){
-        return $this->hasMany('App\Cart');
-    }
-
     public function goodsreview(){
-        return $this->hasMany('App\Review');
+        return $this->belongsTo('App\Good');
     }
 
 }

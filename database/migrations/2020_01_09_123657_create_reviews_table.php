@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGoodsTable extends Migration
+class CreateReviewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,16 @@ class CreateGoodsTable extends Migration
      */
     public function up()
     {
-        Schema::create('goods', function (Blueprint $table) {
+        Schema::create('reviews', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
-            $table->string('name');
-            $table->mediumText('description')->nullable();
-            $table->string('image')->nullable();
-            $table->bigInteger('price');
-            $table->bigInteger('views')->nullable();
+            $table->bigInteger('good_id')->unsigned();
+            $table->bigInteger('rating');
+            $table->string('body')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('good_id')->references('id')->on('goods')->onDelete('cascade');
         });
     }
 
@@ -34,6 +33,6 @@ class CreateGoodsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('goods');
+        Schema::dropIfExists('reviews');
     }
 }
