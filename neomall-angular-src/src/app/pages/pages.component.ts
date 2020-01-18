@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { TabsetComponent } from 'ngx-bootstrap';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'app-pages',
@@ -7,20 +7,21 @@ import { TabsetComponent } from 'ngx-bootstrap';
   styleUrls: ['./pages.component.css']
 })
 export class PagesComponent implements OnInit {
-  @ViewChild('pagesTabs', {static: false}) pagesTabs: TabsetComponent;
 
-  title: string = "Profile";
-  tabnumber: number = 0;
+  title: string;
+  public fragment: string;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-  }
-
-  selectTab(tabId: number, event: any): void {
-    event.preventDefault();
-    this.pagesTabs.tabs[tabId].active = true;
-    this.tabnumber = tabId;
+    this.route.fragment.subscribe(fragment => {
+      if(fragment !== 'help_center' && fragment !== 'frequently_asked_questions'){
+        this.router.navigateByUrl('**');
+        return false;
+      }
+      this.title = fragment.replace('_', ' ');
+      this.fragment = fragment;
+    })
   }
 
 }

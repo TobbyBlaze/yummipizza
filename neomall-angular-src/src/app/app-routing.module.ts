@@ -3,40 +3,60 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ShopComponent } from './shop/shop.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { CartComponent } from './cart/cart.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { PagesComponent } from './pages/pages.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ProductComponent } from './product/product.component';
+import { AllcategoriesComponent } from './allcategories/allcategories.component';
+import { CategoryComponent } from './category/category.component';
+import { ShopsComponent } from './shops/shops.component';
 
 const routes: Routes = [
   { 
-    path: '', 
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-  { 
-    path: 'home', 
-    loadChildren: () => import('./home/home.module').then(m => m.HomeModule) 
+    path: '',
+    component: HomeComponent
   },
   { 
     path: 'cart', 
-    loadChildren: () => import('./cart/cart.module').then(m => m.CartModule) 
+    component: CartComponent
   },
   {
     path: 'shop',
     component: ShopComponent 
   },
   { 
-    path: 'pages', 
-    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule) 
+    path: 'np', 
+    component: PagesComponent
   },
   {
      path: 'profile', 
-     loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) 
+     component: ProfileComponent 
   },
   { 
-    path: 'login', 
-    loadChildren: () => import('./login/login.module').then(m => m.LoginModule) 
+    path: 'account/:directive', 
+    component: LoginComponent
   },
   { 
-    path: 'product/:id', 
-    loadChildren: () => import('./product/product.module').then(m => m.ProductModule) 
+    path: 'item/:item_name', 
+    component: ProductComponent
+  },
+  { 
+    path: 'shop/all-categories', 
+    component: AllcategoriesComponent
+  },
+  { 
+    path: 'shops/:store', 
+    component: ShopComponent
+  },
+  { 
+    path: 'shops', 
+    component: ShopsComponent
+  },
+  { 
+    path: 'browse/:category', 
+    component: CategoryComponent
   },
   {
     path: '**',

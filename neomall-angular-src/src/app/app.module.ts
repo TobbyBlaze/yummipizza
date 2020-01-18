@@ -6,16 +6,18 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
-import { TabsModule } from 'ngx-bootstrap/tabs';
-import { AccordionModule } from 'ngx-bootstrap/accordion';
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { CarouselModule } from 'ngx-bootstrap/carousel';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { OwlModule } from 'ngx-owl-carousel';
-
 import { AppComponent } from './app.component';
 import { ShopComponent } from './shop/shop.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { CartComponent } from './cart/cart.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { PagesComponent } from './pages/pages.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ProductComponent } from './product/product.component';
+import { AllcategoriesComponent } from './allcategories/allcategories.component';
+import { CategoryComponent } from './category/category.component';
+import { ShopsComponent } from './shops/shops.component';
 
 const ngxUiConfig: NgxUiLoaderConfig = {
   fgsType: SPINNER.threeStrings,
@@ -32,22 +34,25 @@ const ngxUiHttpConfig: NgxUiLoaderHttpConfig = {
   declarations: [
     AppComponent,
     ShopComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    CartComponent,
+    HomeComponent,
+    LoginComponent,
+    PagesComponent,
+    ProfileComponent,
+    ProductComponent,
+    AllcategoriesComponent,
+    CategoryComponent,
+    ShopsComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    OwlModule,
     NgxUiLoaderModule.forRoot(ngxUiConfig),
     NgxUiLoaderRouterModule,
-    NgxUiLoaderHttpModule.forRoot(ngxUiHttpConfig),
-    TabsModule.forRoot(),
-    AccordionModule.forRoot(),
-    ModalModule.forRoot(),
-    CarouselModule.forRoot(),
-    BsDropdownModule.forRoot()
+    NgxUiLoaderHttpModule.forRoot(ngxUiHttpConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

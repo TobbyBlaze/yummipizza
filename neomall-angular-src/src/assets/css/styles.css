@@ -6,10 +6,6 @@
     box-sizing: border-box;
 }
 
-body  {
-	background: #1abc9c;
-}
-
 .bt-menu {
 	position: fixed;
 	top: 0;
@@ -18,16 +14,22 @@ body  {
 	height: 0;
 	border-width: 0px;
 	border-style: solid;
-	border-color: #333;
-	background-color: rgba(0,0,0,0);
+	border-color: #FFF;
+	background-color: #FFF;
 	-webkit-backface-visibility: hidden;
 	-webkit-transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
 	transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
 }
 
+@media screen and (min-width: 768px){
+	.bt-menu{
+		display: none;
+	}
+}
+
 .bt-menu.bt-menu-open {
 	height: 100%;
-	border-width: 0px 0px 50px 150px;
+	border-width: 0px 0px 50px 280px;
 	background-color: rgba(0,0,0,0.3);
 	-webkit-transition: border-width 0.3s, background-color 0.3s;
 	transition: border-width 0.3s, background-color 0.3s;
@@ -113,20 +115,15 @@ body  {
 }
 
 .bt-menu ul:first-of-type {
-	top: 50px;
+	top: 80px;
 	left: 0;
 }
 
 #menu-ul {
 	display: none;
-	
-}
-
-@media screen and (max-height: 480px){
-	.bt-menu ul:first-of-type {
-		top: 15px;
-		left: 0;
-	}
+	height:calc(93vh - 50px);
+	overflow-y: scroll;
+	scroll-behavior:smooth;
 }
 
 .bt-menu ul:nth-of-type(2) {
@@ -161,8 +158,9 @@ body  {
 
 /* First menu */
 .bt-menu ul:first-of-type li {
-	width: 150px;
+	width: 280px;
 	height: 50px;
+	padding: 0 20px;
 	line-height: 50px;
 	-webkit-transform: translate3d(-100%,50%,0);
 	transform: translate3d(-100%,50%,0);
@@ -211,55 +209,23 @@ body  {
 	display: block;
 	outline: none;
 	text-decoration: none;
-	font-family: 'Raleway' !important;
+	font-family: 'Open Sans' !important;
 	font-weight: 300 !important;
 }
 
 .bt-menu ul:first-of-type li a {
-	padding: 0 20px;
-	box-shadow: inset 0 1px rgba(0,0,0,0.2);
-	color: #fff;
+	color: black;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	font-size: 1em;
-	-webkit-transition: color 0.2s;
-	transition: color 0.2s;
-}
-
-.bt-menu ul:first-of-type li:last-child a {
-	box-shadow: inset 0 1px rgba(0,0,0,0.2), inset 0 -1px rgba(0,0,0,0.2);
 }
 
 .bt-menu ul:nth-of-type(2) li a {
-	color: white;
+	color: black;
 	text-align: center;
 	font-size: 18px;
 }
 
-.bt-menu ul li a:before {
-	color: #fff;
-	font-size: 24px;
-	-webkit-transition: color 0.2s;
-	transition: color 0.2s;
-}
-
-.bt-menu ul:first-of-type li a:hover,
-.bt-menu ul:first-of-type li a:focus,
-.bt-menu ul li a:hover:before,
-.bt-menu ul li a:focus:before {
-	color: #1abc9c;
-}
-
-.pages {
-	min-width: 9rem !important;
-	z-index: 10;
-}
-
-.pages li {
-	background-color: #333333;
-}
-
-.pages li a {
-	color: white;
-	font-size: 14px !important; 
+.active-link {
+	color: #1abc9c !important;
 }

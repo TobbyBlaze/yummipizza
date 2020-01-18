@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { TabsetComponent } from 'ngx-bootstrap';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -7,20 +7,18 @@ import { TabsetComponent } from 'ngx-bootstrap';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  @ViewChild('profileTabs', {static: false}) profileTabs: TabsetComponent;
 
-  title: string = "Profile - John Doe";
-  tabnumber: number = 0;
+  public title: string = "Profile - John Doe";
+  public fragment: string;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-  }
+    this.route.fragment.subscribe(fragment => {
+      this.fragment = fragment;
+    })
 
-  selectTab(tabId: number, event: any): void {
-    event.preventDefault();
-    this.profileTabs.tabs[tabId].active = true;
-    this.tabnumber = tabId;
+
   }
 
 }

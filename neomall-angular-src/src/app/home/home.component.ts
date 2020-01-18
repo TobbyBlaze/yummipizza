@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
   public title: string = "Neomall";
 
   constructor() { }
-
+ 
   ngOnInit() {
   }
 

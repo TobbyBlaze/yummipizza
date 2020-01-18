@@ -1,38 +1,210 @@
-accordion-group {
-    background-color: white;
+.brd {
+    border: 1px solid #CED4DA;
+    border-color:#CED4DA;
+}
+
+#selected {
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+#select-button {
+    position: relative;
+    padding: .85rem .75rem;
+    background-color: #fff;
+    top:-45px;
+    height:57px;
+    width:97%;
+    cursor: pointer;
+}
+
+#options-view-button {
+    position: relative;
+    top: 5px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 10;
+}
+
+#selected-value {
+    font-size: 16px;
+    line-height: 1;
+}
+
+.option i {
+    width: 16px;
+    height: 16px;
+}
+
+.option, .label {
+    color: #2d3667;
+    font-size: 16px;
+}
+
+#options-view-button:checked+#select-button #chevrons i {
+    color: #2d3667;
+}
+
+.options {
+    position: absolute;
+    left: 0;
+}
+
+#options {
+    position: relative;
+    top: -30px;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    background-color: #fff;
+    width:97%;
+    margin-left:-2px;
+    overflow-x:hidden;
+}
+
+#options-view-button:checked~#options {
+    border: 1px solid #e2eded;
+    border-color: #eaf1f1 #e4eded #dbe7e7 #e4eded;
+    z-index:9;
+}
+
+.option {
+    position: relative;
+    line-height: 1;
+    transition: 0.3s ease all;
+    z-index: 7;
+}
+
+.option i {
+    position: absolute;
+    left: 14px;
+    padding: 0;
+    display: none;
+}
+
+#options-view-button:checked~#options .option i {
+    display: block;
+    padding: 12px 0;
+}
+
+.label {
+    display: none;
+    padding: 0;
+    margin-left: 27px;
+}
+
+#options-view-button:checked~#options .label {
+    display: flex;
+    padding: 20px;
+    font-size: 15px;
+}
+
+.s-c {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+}
+
+.s-c.top {
+    top: 0;
+}
+
+.s-c.bottom {
+    bottom: 0;
+}
+
+input[type="radio"] {
+    opacity: 0;
+    cursor: pointer;
+    width:100%;
+    left: 0 !important;
+}
+
+.s-c:hover {
+    height: 100%;
+    z-index: 1;
+}
+
+.label {
+    transition: 0.3s ease all;
+}
+
+.opt-val {
+    position: absolute;
+    left: 14px;
+    height: 21px;
+    opacity: 0;
+    background-color: #fff;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+
+.option input[type="radio"]:checked~.opt-val {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.option input[type="radio"]:checked~i {
+    top: 0;
+    bottom: auto;
+    opacity: 1;
+    -webkit-animation: unset;
+    animation: unset;
+}
+
+.option input[type="radio"]:checked~i, .option input[type="radio"]:checked~.label {
+    color: #fff;
+}
+
+.option input[type="radio"]:checked~.label:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#options-view-button:not(:checked)~#options .option input[type="radio"]:checked~.opt-val {
+    top: -30px;
+}
+
+.option:nth-child(1) input[type="radio"]:checked~.label:before {
+    background-color: #32c766;
+    border-radius: 4px 4px 0 0;
+}
+
+.option:nth-child(1) input[type="radio"]:checked~.opt-val {
+    top: -31px;
+}
+
+.option:nth-child(2) input[type="radio"]:checked~.label:before {
+    background-color: #E20010;
+}
+
+.option:nth-child(2) input[type="radio"]:checked~.opt-val {
+    top: -71px;
+}
+
+
+.option:hover .label {
     color: black;
 }
 
-button.btn.btn-link.collapsed::before {
-    content:'\002B';
-    font-size:1.375rem;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    transition: all 0.2s;
-    -webkit-transition-delay: 0s;
-    -moz-transition-delay: 0s;
-    transition-delay: 0s;
-    position: absolute;
-    width: 1em;
-    line-height: 1em;
-    right: 1.875rem;
-    margin-top: -0.5em;
-    color: #555;
+.option:nth-child(1):hover~#option-bg {
+    top: 0;
+    background-color: #32c766;
+    border-radius: 4px 4px 0 0;
 }
 
-button.btn.btn-link::before {
-    content:'\00D7';
-    font-size:1.375rem;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    transition: all 0.2s;
-    -webkit-transition-delay: 0s;
-    -moz-transition-delay: 0s;
-    transition-delay: 0s;
-    position: absolute;
-    width: 1em;
-    line-height: 1em;
-    right: 1.875rem;
-    margin-top: -0.5em;
-    color: #555;
+.option:nth-child(2):hover~#option-bg {
+    top: 40px;
+    background-color: #e93e3e;
+    border-radius: 0 0 4px 4px;
 }

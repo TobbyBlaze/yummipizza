@@ -1,40 +1,250 @@
 <!-- header -->
-<header class="header header-sticky" style="background-color: #333333 !important;">
-    <div class="container">
+<header class="header header-sticky" style="background-color: #FFF !important;">
+    <div class="container-fluid">
         <div class="row no-gutters">
-            <nav class="navbar navbar-expand-md navbar-expand-lg navbar-dark">
-                <a routerLink="/home" class="navbar-brand"><img src="assets/images/logo.svg" alt="Logo">
+            <nav class="navbar navbar-expand-md navbar-expand-lg navbar-light">
+                <a routerLink="/" class="navbar-brand"><img src="assets/images/logo-dark.svg" alt="Logo">
                 </a>
-                <button (click)="menu($event)" class="trigger d-flex d-md-none d-lg-none" style="background-color: transparent; border:none;">
+
+                <a style="margin-right:-70px;" class="nav-link d-flex d-md-none d-lg-none" (click)="openModal('search')" data-target="#search" data-toggle="modal">
+                    <i class="icon-search"></i>
+                </a>
+
+                <button id="trigger" class="d-flex d-md-none d-lg-none" style="background-color: transparent; border:none;">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                
 
                 <ul class="navbar-nav ml-auto mt-md-0 d-none d-md-flex">
-                    <li class="nav-item px-2">
-                        <a class="nav-link" routerLink="/shop" aria-haspopup="true" aria-expanded="false">
-                            Shop
+                    <li class="nav-item dropdown megamenu px-md-2 px-lg-1">
+                        <a class="nav-link dropdown-toggle" href="#!" id="shop" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 64 64"
+                                    aria-labelledby="title" aria-describedby="desc" role="img"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <path data-name="layer2"
+                                        d="M38 8.4A20 20 0 0 1 54 28v2m-44 0v-2A20 20 0 0 1 26 8.4M38 8a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4 4 4 0 0 1 4-4h4a4 4 0 0 1 4 4z"
+                                        fill="none" stroke="#000000" stroke-miterlimit="10" stroke-width="2"
+                                        stroke-linejoin="round" stroke-linecap="round"></path>
+                                    <path data-name="layer1" fill="none" stroke="#000000" stroke-miterlimit="10"
+                                        stroke-width="2" d="M32 38v14M20 38v14m24-14v14M6.1 30L12 60h40l6-30M2 30h60"
+                                        stroke-linejoin="round" stroke-linecap="round">
+                                    </path>
+                                </svg>
+                            </span>
+                            <span>Shop</span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="shop">
+                            <div class="row">
+                                <ul class="col-md-6 col-lg-4">
+                                    <li><span class="megamenu-title">Departments</span></li>
+                                    <li><a class="dropdown-item" [routerLink]="['/browse', 'bla']">Clothings, Shoes
+                                            &amp; Accessories</a></li>
+                                    <li><a class="dropdown-item" [routerLink]="['/browse', 'bla']">Electronics</a>
+                                    </li>
+                                    <li><a class="dropdown-item" [routerLink]="['/browse', 'bla']">Home &amp;
+                                            Furnitures</a></li>
+                                    <li><a class="dropdown-item" [routerLink]="['/browse', 'bla']">Video games</a>
+                                    </li>
+                                    <li><a class="dropdown-item" [routerLink]="['/browse', 'bla']">Grocery</a></li>
+
+                                </ul>
+                                <ul class="col-md-6 col-lg-4">
+                                    <li><span class="megamenu-title">Popular Vendors</span></li>
+                                    <li><a class="dropdown-item" [routerLink]="['/shops', 'bla']">Gucci</a></li>
+                                    <li><a class="dropdown-item" [routerLink]="['/shops', 'bla']">Walmart</a></li>
+                                    <li><a class="dropdown-item" [routerLink]="['/shops', 'bla']">Eves</a></li>
+                                    <li><a class="dropdown-item" [routerLink]="['/shops', 'bla']">Apparel</a></li>
+                                </ul>
+                                <div class="col-lg-4">
+                                    <div class="promo">
+                                        <span class="image image-overlay"
+                                            style="background-image: url(assets/images/background-3.jpg)"></span>
+                                        <div class="promo-footer p-4 text-white">
+                                            <h3 class="mb-0">Latest Products</h3>
+                                            <a routerLink="/shop" class="eyebrow underline text-white">Shop Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown px-md-2 px-lg-1">
+                        <a class="nav-link dropdown-toggle" href="#!" id="account" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 64 64"
+                                    aria-labelledby="title" aria-describedby="desc" role="img"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <path data-name="layer2"
+                                        d="M34.2 51.5H2s0-7 9.4-8.8 8.6-3.6 8.6-5.2v-2a14.2 14.2 0 0 1-4-7c-2.5 0-4-3-4-6 0-.8 0-4 2-4-1.6-6.4-.4-13 4-13 10.4-7 25-1.5 20 13 2 0 2 3.2 2 4 0 3-1.5 6-4 6a14.1 14.1 0 0 1-4 7v2a3.8 3.8 0 0 0 2.5 3.5l1.1.6"
+                                        fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2"
+                                        stroke-linejoin="round" stroke-linecap="round"></path>
+                                    <circle data-name="layer1" cx="48" cy="47.5" r="4" fill="none" stroke="#202020"
+                                        stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round"
+                                        stroke-linecap="round"></circle>
+                                    <path data-name="layer1"
+                                        d="M62 51.3l-3.1-1.8a11.2 11.2 0 0 0 .2-1.9 11.3 11.3 0 0 0-.2-2.1l2.8-1.7-3.7-6.5-2.9 1.7a9.5 9.5 0 0 0-3.1-2v-3.5h-8V37a9.8 9.8 0 0 0-3.2 2L38 37.3l-3.7 6.5 2.8 1.6a11 11 0 0 0 0 4.1L34 51.3l3.7 6.5 3-1.8a9.8 9.8 0 0 0 3.3 2.1v3.4h8v-3.4a9.6 9.6 0 0 0 3.2-2.1l3.1 1.8z"
+                                        fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2"
+                                        stroke-linejoin="round" stroke-linecap="round"></path>
+                                </svg>
+                            </span>
+                            <span>Account</span>
+
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="account">
+                            <li>
+                                <a class="dropdown-item" routerLinkActive="active-link" [routerLink]="['/account', 'sign_in']" [queryParams]="{redirectUrl: router.url.replace('/', '')}" > 
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px"
+                                            viewBox="0 0 64 64" aria-labelledby="title" aria-describedby="desc"
+                                            role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <path data-name="layer2" fill="none" stroke="#202020" stroke-miterlimit="10"
+                                                stroke-width="2" d="M36 24l9 8-9 8m-26-8h35" stroke-linejoin="round"
+                                                stroke-linecap="round"></path>
+                                            <path data-name="layer1" fill="none" stroke="#202020" stroke-miterlimit="10"
+                                                stroke-width="2" d="M54 12v40" stroke-linejoin="round"
+                                                stroke-linecap="round"></path>
+                                        </svg>
+                                    </span>
+                                    <span>Login</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="javascript:void(0)">
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px"
+                                            viewBox="0 0 64 64" aria-labelledby="title" aria-describedby="desc"
+                                            role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <path data-name="layer2" fill="none" stroke="#202020" stroke-miterlimit="10"
+                                                stroke-width="2" d="M28 24l-9 8 9 8m26-8H19" stroke-linejoin="round"
+                                                stroke-linecap="round"></path>
+                                            <path data-name="layer1" fill="none" stroke="#202020" stroke-miterlimit="10"
+                                                stroke-width="2" d="M10 12v40" stroke-linejoin="round"
+                                                stroke-linecap="round"></path>
+                                        </svg>
+                                    </span>
+                                    <span>Logout</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" [routerLink]="['/account', 'sign_up']" [queryParams]="{redirectUrl: router.url.replace('/', '')}" routerLinkActive="active-link">
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px"
+                                            viewBox="0 0 64 64" aria-labelledby="title" aria-describedby="desc"
+                                            role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <path data-name="layer2"
+                                                d="M35.9 41c-3.3-1-3.9-2.9-3.9-4v-2a14.1 14.1 0 0 0 4-7c2.5 0 4-3 4-6 0-.8 0-4-2-4C43 3.5 28.4-2 18 5c-4.4 0-5.6 6.6-4 13-2 0-2 3.2-2 4 0 3 1.5 6 4 6a14.2 14.2 0 0 0 4 7v2c0 1.6-.5 3.6-8.6 5.2S2 51 2 51h32.3"
+                                                fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2"
+                                                stroke-linejoin="round" stroke-linecap="round"></path>
+                                            <circle data-name="layer1" cx="48" cy="48" r="14" fill="none"
+                                                stroke="#202020" stroke-miterlimit="10" stroke-width="2"
+                                                stroke-linejoin="round" stroke-linecap="round"></circle>
+                                            <path data-name="layer1" fill="none" stroke="#202020" stroke-miterlimit="10"
+                                                stroke-width="2" d="M42 48h12m-6 6V42" stroke-linejoin="round"
+                                                stroke-linecap="round"></path>
+                                        </svg>
+                                    </span>
+                                    <span>Create Account</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" [routerLink]="['/np']" fragment="help_center" routerLinkActive="active-link">
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px"
+                                            viewBox="0 0 64 64" aria-labelledby="title" aria-describedby="desc"
+                                            role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <path data-name="layer2"
+                                                d="M22 21.41c0-3.6 2.758-9.41 10.587-9.41C40.417 12 42 19.035 42 21.41s-.738 5.116-5.07 9.448C32.595 35.19 32 37.44 32 39.5V42"
+                                                fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2"
+                                                stroke-linejoin="round" stroke-linecap="round"></path>
+                                            <circle data-name="layer1" cx="32" cy="49" r="3" fill="none"
+                                                stroke="#202020" stroke-miterlimit="10" stroke-width="2"
+                                                stroke-linejoin="round" stroke-linecap="round"></circle>
+                                        </svg>
+                                    </span>
+                                    <span>Help</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" [routerLink]="['/profile']" fragment="orders" routerLinkActive="active-link">
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px"
+                                            viewBox="0 0 64 64" aria-labelledby="title" aria-describedby="desc"
+                                            role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <path data-name="layer2" fill="none" stroke="#202020" stroke-miterlimit="10"
+                                                stroke-width="2"
+                                                d="M56.4 29.7L58 22M6.1 22L12 52h30.1M26 2L8.1 22M38 2l18 20M2 22h60"
+                                                stroke-linejoin="round" stroke-linecap="round"></path>
+                                            <path data-name="layer1"
+                                                d="M61.9 41.5A12.2 12.2 0 0 0 62 40a12 12 0 1 0-24 0 12.2 12.2 0 0 0 .1 1.5C39.2 51.4 50 62 50 62s10.8-10.6 11.9-20.5z"
+                                                fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2"
+                                                stroke-linejoin="round" stroke-linecap="round"></path>
+                                            <circle data-name="layer1" cx="50" cy="40" r="2" fill="none"
+                                                stroke="#202020" stroke-miterlimit="10" stroke-width="2"
+                                                stroke-linejoin="round" stroke-linecap="round"></circle>
+                                        </svg>
+                                    </span>
+                                    <span>Track Orders</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="/cart" routerLinkActive="active-link" class="dropdown-item">
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 64 64"
+                                            aria-labelledby="title" aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <path data-name="layer2" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2"
+                                                d="M18 23.5l10-10 10 10m8 0v-10h12v10" stroke-linejoin="round" stroke-linecap="round">
+                                            </path>
+                                            <path data-name="layer2" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2"
+                                                d="M36 21.5l7-17 7 3-2.4 6m-1.6 4l-2.4 6" stroke-linejoin="round" stroke-linecap="round">
+                                            </path>
+                                            <path data-name="layer1" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2"
+                                                d="M2 7.5h10l10 40h32l8-24H16" stroke-linejoin="round" stroke-linecap="round"></path>
+                                            <circle data-name="layer1" cx="24" cy="55.5" r="4" fill="none" stroke="#202020" stroke-miterlimit="10"
+                                                stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+                                            </circle>
+                                            <circle data-name="layer1" cx="50" cy="55.5" r="4" fill="none" stroke="#202020" stroke-miterlimit="10"
+                                                stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+                                            </circle>
+                                        </svg>
+                                    </span>
+                                    <span>Cart</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" routerLink="/profile" fragment="wishlist">
+                                    <span>
+                                        <svg width="16px" height="16px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"
+                                            aria-labelledby="title" aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <path d="M34.83 24H12m39.173 0H58l-8 24H18L8 8H2" stroke-width="2" stroke-miterlimit="10"
+                                                stroke="#202020" fill="none" data-name="layer2" stroke-linejoin="round" stroke-linecap="round">
+                                            </path>
+                                            <circle stroke-width="2" stroke-miterlimit="10" stroke="#202020" fill="none" r="4" cy="56" cx="20"
+                                                data-name="layer2" stroke-linejoin="round" stroke-linecap="round"></circle>
+                                            <circle stroke-width="2" stroke-miterlimit="10" stroke="#202020" fill="none" r="4" cy="56" cx="46"
+                                                data-name="layer2" stroke-linejoin="round" stroke-linecap="round"></circle>
+                                            <path
+                                                d="M43 29.887L33.113 37l3.809-11.469L28 19h11.242L43 7l3.758 12H58l-8.918 6.531L52.891 37 43 29.887z"
+                                                stroke-width="2" stroke-miterlimit="10" stroke="#202020" fill="none" data-name="layer1"
+                                                stroke-linejoin="round" stroke-linecap="round"></path>
+                                        </svg>
+                                    </span>
+                                    <span>Wishlist</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item px-md-2 px-lg-1">
+                        <a class="nav-link" (click)="openModal('search')" data-target="#search" data-toggle="modal">
+                            <i class="icon-search"></i>
+                            <span>Search</span>
                         </a>
                     </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link" routerLink="/cart" aria-haspopup="true" aria-expanded="false">
-                            Cart
-                        </a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link" routerLink="/profile" aria-haspopup="true" aria-expanded="false">
-                            Profile
-                        </a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link" routerLink="/pages" aria-haspopup="true" aria-expanded="false">
-                            Pages
-                        </a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link" routerLink="/blog" aria-haspopup="true" aria-expanded="false">
-                            Blog
-                        </a>
-                    </li>
+
                 </ul>
 
 
@@ -52,22 +262,18 @@
             <div class="col-lg-6 py-7">
                 <div class="row">
                     <div class="col-md-8">
-                        <p>Thanks to <a href="https://www.opumo.com/" class="underline">Opumo</a> for
-                            the product images
-                            used in this demo theme. Head over to <a href="https://www.opumo.com/"
-                                class="underline">their
-                                store</a> to get these products.</p>
+
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-10">
                         <h4 class="eyebrow mb-2">Quick Links</h4>
                         <ul class="list-group list-group-columns">
-                            <li class="list-group-item"><a href="about.html">About</a></li>
-                            <li class="list-group-item"><a href="contact.html">Contact Us</a></li>
-                            <li class="list-group-item"><a href="faq.html">FAQ</a></li>
-                            <li class="list-group-item"><a href="blog.html">Blog</a></li>
-                            <li class="list-group-item"><a href="text.html">Terms of Use</a></li>
+                            <!-- <li class="list-group-item"><a routerLink="/pages">About</a></li> -->
+                            <li class="list-group-item"><a [routerLink]="['/np']" fragment="help_center" >Contact Us</a></li>
+                            <li class="list-group-item"><a [routerLink]="['/np']" fragment="frequently_asked_questions">FAQ</a></li>
+                            <li class="list-group-item"><a routerLink="">Blog</a></li>
+                            <li class="list-group-item"><a routerLink="">Terms of Use</a></li>
                         </ul>
                     </div>
                 </div>
@@ -106,154 +312,208 @@
     </div>
 </footer>
 
-<nav id="bt-menu" class="bt-menu" style="font-family:'Raleway'!important;">
-    <!-- <a href="#" class="trigger"><span>Menu</span></a> -->
+<nav id="bt-menu" class="bt-menu">
+    <a routerLink="/" id="neomall-brand"><img src="assets/images/logo-dark.svg" alt="Logo">
+    </a>
+
     <ul id="menu-ul">
-        <li>Logo</li>
         <li>
-            <a routerLink="/home">
+            <a>
                 <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 64 64"
-                        aria-labelledby="title" aria-describedby="desc" role="img"
-                        xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <path data-name="layer1"
-                            d="M54 26.267l7.555 7.3a.25.25 0 0 1-.174.43H54V62H40V44H24v18H10V34H2.618a.25.25 0 0 1-.174-.43L32 5l13 12.567V12h9z"
-                            fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
-                            stroke-linejoin="round"></path>
-                    </svg>
-                </span>
-                <span class="p-1">Home</span>
-            </a>
-        </li>
-        <li>
-            <a routerLink="/shop">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 64 64"
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 64 64"
                         aria-labelledby="title" aria-describedby="desc" role="img"
                         xmlns:xlink="http://www.w3.org/1999/xlink">
                         <path data-name="layer2"
                             d="M38 8.4A20 20 0 0 1 54 28v2m-44 0v-2A20 20 0 0 1 26 8.4M38 8a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4 4 4 0 0 1 4-4h4a4 4 0 0 1 4 4z"
-                            fill="none" stroke="#FFFFFF" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round"
+                            fill="none" stroke="#000000" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round"
                             stroke-linecap="round"></path>
-                        <path data-name="layer1" fill="none" stroke="#FFFFFF" stroke-miterlimit="10" stroke-width="2"
+                        <path data-name="layer1" fill="none" stroke="#000000" stroke-miterlimit="10" stroke-width="2"
                             d="M32 38v14M20 38v14m24-14v14M6.1 30L12 60h40l6-30M2 30h60" stroke-linejoin="round"
                             stroke-linecap="round"></path>
                     </svg>
                 </span>
+                <span>Shop</span>
+            </a>
+            <ul style="top:50px;">
+                <li><span class="neo-title">Departments</span></li>
+                <li><a class="neo" [routerLink]="['/browse', 'bla']">Clothings, Shoes
+                        &amp; Accessories</a></li>
+                <li><a class="neo" [routerLink]="['/browse', 'bla']">Electronics</a>
+                </li>
+                <li><a class="neo" [routerLink]="['/browse', 'bla']">Home &amp;
+                        Furnitures</a></li>
+                <li><a class="neo" [routerLink]="['/browse', 'bla']">Video games</a>
+                </li>
+                <li><a class="neo" [routerLink]="['/browse', 'bla']">Grocery</a></li>
+            
+                <li><span class="neo-title">Popular Vendors</span></li>
+                <li><a class="neo" [routerLink]="['/shops', 'bla']">Gucci</a></li>
+                <li><a class="neo" [routerLink]="['/shops', 'bla']">Walmart</a></li>
+                <li><a class="neo" [routerLink]="['/shops', 'bla']">Eves</a></li>
+                <li><a class="neo" [routerLink]="['/shops', 'bla']">Apparel</a></li>
+            
+                <li>
+                    <a>
+                        <span>
+                            <svg xmlns:xlink="http://www.w3.org/1999/xlink" aria-describedby="desc" aria-labelledby="title"
+                                height="16px" role="img" viewBox="0 0 64 64" width="16px" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M34.2 51.5H2s0-7 9.4-8.8 8.6-3.6 8.6-5.2v-2a14.2 14.2 0 0 1-4-7c-2.5 0-4-3-4-6 0-.8 0-4 2-4-1.6-6.4-.4-13 4-13 10.4-7 25-1.5 20 13 2 0 2 3.2 2 4 0 3-1.5 6-4 6a14.1 14.1 0 0 1-4 7v2a3.8 3.8 0 0 0 2.5 3.5l1.1.6"
+                                    data-name="layer2" fill="none" stroke="#202020" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-miterlimit="10" stroke-width="2"></path>
+                                <circle cx="48" cy="47.5" data-name="layer1" fill="none" r="4" stroke="#202020"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"></circle>
+                                <path
+                                    d="M62 51.3l-3.1-1.8a11.2 11.2 0 0 0 .2-1.9 11.3 11.3 0 0 0-.2-2.1l2.8-1.7-3.7-6.5-2.9 1.7a9.5 9.5 0 0 0-3.1-2v-3.5h-8V37a9.8 9.8 0 0 0-3.2 2L38 37.3l-3.7 6.5 2.8 1.6a11 11 0 0 0 0 4.1L34 51.3l3.7 6.5 3-1.8a9.8 9.8 0 0 0 3.3 2.1v3.4h8v-3.4a9.6 9.6 0 0 0 3.2-2.1l3.1 1.8z"
+                                    data-name="layer1" fill="none" stroke="#202020" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-miterlimit="10" stroke-width="2"></path>
+                            </svg>
+                        </span>
+                        <span>Account</span>
+                    </a>
+                    <ul style="top:50px;">
+                        <li>
+                            <a class="neo" routerLinkActive="active-link" [routerLink]="['/account', 'sign_in']" [queryParams]="{redirectUrl: router.url.replace('/', '')}">
+                                <span>
+                                    <svg
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" aria-describedby="desc" aria-labelledby="title"
+                                        height="16px" role="img" viewBox="0 0 64 64" width="16px"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M36 24l9 8-9 8m-26-8h35" data-name="layer2" fill="none" stroke="#202020"
+                                            stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2">
+                                        </path>
+                                        <path d="M54 12v40" data-name="layer1" fill="none" stroke="#202020" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"></path>
+                                    </svg>
+                                </span>
+                                <span>Login</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="neo" href="javascript:void(0)">
+                                <span>
+                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        aria-describedby="desc" aria-labelledby="title" height="16px" role="img" viewBox="0 0 64 64"
+                                        width="16px" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M28 24l-9 8 9 8m26-8H19" data-name="layer2" fill="none" stroke="#202020"
+                                            stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2">
+                                        </path>
+                                        <path d="M10 12v40" data-name="layer1" fill="none" stroke="#202020" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"></path>
+                                    </svg>
+                                </span
+                                ><span>Logout</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="neo" routerLinkActive="active-link" [routerLink]="['/account', 'sign_up']" [queryParams]="{redirectUrl: router.url.replace('/', '')}">
+                                <span>
+                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" aria-describedby="desc" aria-labelledby="title"
+                                        height="16px" role="img" viewBox="0 0 64 64" width="16px" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M35.9 41c-3.3-1-3.9-2.9-3.9-4v-2a14.1 14.1 0 0 0 4-7c2.5 0 4-3 4-6 0-.8 0-4-2-4C43 3.5 28.4-2 18 5c-4.4 0-5.6 6.6-4 13-2 0-2 3.2-2 4 0 3 1.5 6 4 6a14.2 14.2 0 0 0 4 7v2c0 1.6-.5 3.6-8.6 5.2S2 51 2 51h32.3"
+                                            data-name="layer2" fill="none" stroke="#202020" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-miterlimit="10" stroke-width="2"></path>
+                                        <circle cx="48" cy="48" data-name="layer1" fill="none" r="14" stroke="#202020" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2">
+                                        </circle>
+                                        <path d="M42 48h12m-6 6V42" data-name="layer1" fill="none" stroke="#202020" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2">
+                                        </path>
+                                    </svg>
+                                </span>
+                                <span>Create Account</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="neo" routerLinkActive="active-link" [routerLink]="['/np']" fragment="help_center" >
+                                <span>
+                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        aria-describedby="desc" aria-labelledby="title" height="16px" role="img" viewBox="0 0 64 64"
+                                        width="16px" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M22 21.41c0-3.6 2.758-9.41 10.587-9.41C40.417 12 42 19.035 42 21.41s-.738 5.116-5.07 9.448C32.595 35.19 32 37.44 32 39.5V42"
+                                            data-name="layer2" fill="none" stroke="#202020" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-miterlimit="10" stroke-width="2"></path>
+                                        <circle cx="32" cy="49" data-name="layer1" fill="none" r="3" stroke="#202020" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2">
+                                        </circle>
+                                    </svg>
+                                </span>
+                                <span>Help</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="neo" [routerLink]="['/profile']" fragment="orders">
+                                <span>
+                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" aria-describedby="desc" aria-labelledby="title"
+                                        height="16px" role="img" viewBox="0 0 64 64" width="16px" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M56.4 29.7L58 22M6.1 22L12 52h30.1M26 2L8.1 22M38 2l18 20M2 22h60" data-name="layer2"
+                                            fill="none" stroke="#202020" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+                                            stroke-width="2">
+                                        </path>
+                                        <path
+                                            d="M61.9 41.5A12.2 12.2 0 0 0 62 40a12 12 0 1 0-24 0 12.2 12.2 0 0 0 .1 1.5C39.2 51.4 50 62 50 62s10.8-10.6 11.9-20.5z"
+                                            data-name="layer1" fill="none" stroke="#202020" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-miterlimit="10" stroke-width="2"></path>
+                                        <circle cx="50" cy="40" data-name="layer1" fill="none" r="2" stroke="#202020" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2">
+                                        </circle>
+                                    </svg>
+                                </span>
+                                <span>Track Orders</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="neo" routerLink="/cart" routerLinkActive="active-link">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 64 64"
+                                        aria-labelledby="title" aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <path data-name="layer2" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2"
+                                            d="M18 23.5l10-10 10 10m8 0v-10h12v10" stroke-linejoin="round" stroke-linecap="round">
+                                        </path>
+                                        <path data-name="layer2" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2"
+                                            d="M36 21.5l7-17 7 3-2.4 6m-1.6 4l-2.4 6" stroke-linejoin="round" stroke-linecap="round">
+                                        </path>
+                                        <path data-name="layer1" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2"
+                                            d="M2 7.5h10l10 40h32l8-24H16" stroke-linejoin="round" stroke-linecap="round"></path>
+                                        <circle data-name="layer1" cx="24" cy="55.5" r="4" fill="none" stroke="#202020" stroke-miterlimit="10"
+                                            stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+                                        </circle>
+                                        <circle data-name="layer1" cx="50" cy="55.5" r="4" fill="none" stroke="#202020" stroke-miterlimit="10"
+                                            stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+                                        </circle>
+                                    </svg>
+                                </span>
+                                <span>Cart</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="neo" [routerLink]="['/profile']" fragment="wishlist" routerLinkActive="active-link">
+                                <span>
+                                    <svg width="16px" height="16px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title"
+                                        aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <path d="M34.83 24H12m39.173 0H58l-8 24H18L8 8H2" stroke-width="2" stroke-miterlimit="10" stroke="#202020"
+                                            fill="none" data-name="layer2" stroke-linejoin="round" stroke-linecap="round"></path>
+                                        <circle stroke-width="2" stroke-miterlimit="10" stroke="#202020" fill="none" r="4" cy="56" cx="20"
+                                            data-name="layer2" stroke-linejoin="round" stroke-linecap="round"></circle>
+                                        <circle stroke-width="2" stroke-miterlimit="10" stroke="#202020" fill="none" r="4" cy="56" cx="46"
+                                            data-name="layer2" stroke-linejoin="round" stroke-linecap="round"></circle>
+                                        <path d="M43 29.887L33.113 37l3.809-11.469L28 19h11.242L43 7l3.758 12H58l-8.918 6.531L52.891 37 43 29.887z"
+                                            stroke-width="2" stroke-miterlimit="10" stroke="#202020" fill="none" data-name="layer1"
+                                            stroke-linejoin="round" stroke-linecap="round"></path>
+                                    </svg>
+                                </span>
+                                <span>Wishlist</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
 
-                <span class="p-1">Shop</span>
-            </a>
-        </li>
-        <li>
-            <a routerLink="/cart">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 64 64"
-                        aria-labelledby="title" aria-describedby="desc" role="img"
-                        xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <path data-name="layer2" fill="none" stroke="#FFFFFF" stroke-miterlimit="10" stroke-width="2"
-                            d="M18 23.5l10-10 10 10m8 0v-10h12v10" stroke-linejoin="round" stroke-linecap="round">
-                        </path>
-                        <path data-name="layer2" fill="none" stroke="#FFFFFF" stroke-miterlimit="10" stroke-width="2"
-                            d="M36 21.5l7-17 7 3-2.4 6m-1.6 4l-2.4 6" stroke-linejoin="round" stroke-linecap="round">
-                        </path>
-                        <path data-name="layer1" fill="none" stroke="#FFFFFF" stroke-miterlimit="10" stroke-width="2"
-                            d="M2 7.5h10l10 40h32l8-24H16" stroke-linejoin="round" stroke-linecap="round"></path>
-                        <circle data-name="layer1" cx="24" cy="55.5" r="4" fill="none" stroke="#FFFFFF"
-                            stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-                        </circle>
-                        <circle data-name="layer1" cx="50" cy="55.5" r="4" fill="none" stroke="#FFFFFF"
-                            stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-                        </circle>
-                    </svg>
-                </span>
 
-                <span class="p-1">Cart</span>
-            </a>
         </li>
-        <li><a routerLink="/profile">
-                <span>
-                    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
-                        aria-labelledby="title" aria-describedby="desc" role="img"
-                        xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <path stroke-width="2" stroke-miterlimit="10" stroke="#FFFFFF" fill="none"
-                            d="M41.713 48.744c-1.968-1.476-1.71-3.069-1.71-4.244v-4m-16 1v3c0 1.285.425 3.083-2.194 4.67"
-                            data-name="layer2" stroke-linejoin="round" stroke-linecap="round"></path>
-                        <path stroke-width="2" stroke-miterlimit="10" stroke="#FFFFFF" fill="none"
-                            d="M37.601 42.5a16.786 16.786 0 0 0 7.168-10.135c3.026-.037 4.234-2.931 4.234-6.937 0-1.994 0-4.928-3-4.928v-2m-29 0v2.006c-2-.006-3 2.994-3 4.988 0 4.006 1.391 7.006 4.436 7.006h.002a15.21 15.21 0 0 0 7.17 10m20.392-24v-2c0-10.4-7.373-14-14-14s-15 3.517-15 13.916V18.5c12 0 13-8 21-8 7.459 0 8 8 8 8z"
-                            data-name="layer2" stroke-linejoin="round" stroke-linecap="round"></path>
-                        <path stroke-width="2" stroke-miterlimit="10" stroke="#FFFFFF" fill="none"
-                            d="M14.003 51.5c-12.61 2-12.001 11-12.001 11h30L21.809 49.17c-1.458.885-3.856 1.703-7.806 2.33zm36 0c-4.436-.74-6.91-1.72-8.29-2.756L32.002 62.5h30s0-9-12-11z"
-                            data-name="layer1" stroke-linejoin="round" stroke-linecap="round"></path>
-                    </svg>
-                </span>
-                <span>Profile</span>
-            </a>
-        </li>
-        <li><a routerLink="/pages">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="24px" height="24px"
-                        aria-labelledby="title" aria-describedby="desc" role="img"
-                        xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <circle data-name="layer2" cx="32" cy="32" r="30" fill="none" stroke="#FFFFFF"
-                            stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-                        </circle>
-                        <path data-name="layer1" fill="none" stroke="#FFFFFF" stroke-miterlimit="10" stroke-width="2"
-                            d="M28 26h4v22m-4 .008h8" stroke-linejoin="round" stroke-linecap="round"></path>
-                        <circle data-name="layer1" cx="31" cy="19" r="2" fill="none" stroke="#FFFFFF"
-                            stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-                        </circle>
-                    </svg>
-                </span>
-                <span class="p-1">Pages</span>
-            </a>
-        </li>
-        <li><a routerLink="/blog">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="24px" height="24px"
-                        aria-labelledby="title" aria-describedby="desc" role="img"
-                        xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <path data-name="layer1" fill="none" stroke="#FFFFFF" stroke-miterlimit="10" stroke-width="2"
-                            d="M18 2v60" stroke-linejoin="round" stroke-linecap="round"></path>
-                        <path data-name="layer2" d="M54 62H11a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h43z" fill="none"
-                            stroke="#FFFFFF" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round"
-                            stroke-linecap="round"></path>
-                        <path data-name="layer1" fill="none" stroke="#FFFFFF" stroke-miterlimit="10" stroke-width="2"
-                            d="M28 14h16v8H28z" stroke-linejoin="round" stroke-linecap="round">
-                        </path>
-                    </svg>
-                </span>
-                <span class="p-1">Blog</span>
-            </a>
-        </li>
-        <li><a routerLink="/login">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 64 64"
-                        aria-labelledby="title" aria-describedby="desc" role="img"
-                        xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <path data-name="layer1"
-                            d="M57.6 6.4a15 15 0 0 0-23.8 17.7L13.6 44.4l-5.9-6L2 44.1 8 50l-4.7 4.7a4.3 4.3 0 1 0 6 6l30.6-30.5A15 15 0 0 0 57.6 6.4zM51.9 22a7 7 0 1 1 0-9.9 7 7 0 0 1 0 9.9z"
-                            fill="none" stroke="#FFFFFF" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round"
-                            stroke-linecap="round"></path>
-                    </svg>
-                </span>
-                <span class="p-1">Login</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 64 64"
-                        aria-labelledby="title" aria-describedby="desc" role="img"
-                        xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <path data-name="layer2" fill="none" stroke="#FFFFFF" stroke-miterlimit="10" stroke-width="2"
-                            d="M28 24l-9 8 9 8m26-8H19" stroke-linejoin="round" stroke-linecap="round"></path>
-                        <path data-name="layer1" fill="none" stroke="#FFFFFF" stroke-miterlimit="10" stroke-width="2"
-                            d="M10 12v40" stroke-linejoin="round" stroke-linecap="round"></path>
-                    </svg>
-                </span>
-                <span>Logout</span>
-            </a>
-        </li>
+
     </ul>
     <ul>
         <li><a href="#!"><i class="icon-twitter-o"></i></a></li>
@@ -261,3 +521,20 @@
         <li><a href="#!"><i class="icon-youtube-o"></i></a></li>
     </ul>
 </nav>
+
+<div class="modal fade search" id="search" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                    <input type="text" class="form-control" placeholder="Type your search here"
+                        aria-label="Type your search here" aria-describedby="button-addon2">
+                
+                <i class="icon-search"></i>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

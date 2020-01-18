@@ -1,105 +1,189 @@
 <title>{{title}}</title>
 
 
-<section class="py-md-0" style="padding:200px 0;">
-    <div class="image image-overlay" style="background-image:url(../../assets/images/background-2.jpg)"></div>
+<section class="py-md-5 py-10 py-lg-0">
+    <div class="image image-overlay" style="background-image:url(assets/images/background-2.jpg)"></div>
     <div class="container">
         <div class="row justify-content-center align-items-center vh-md-100">
             <div class="col-md-10 col-lg-5">
-                <accordion [closeOthers]="oneAtatime" [isAnimated]="true">
-                    <accordion-group [isOpen]="isOpen">
-                        <div accordion-heading id="headingOne">
+                <div class="accordion accordion-portal" id="accordionExample">
+                    <div class="card active">
+                        <div class="card-header" id="headingOne">
                             <h2 class="mb-0">
-                                <button *ngIf="isOpen == true" class="btn btn-link text-dark" type="button"
-                                    data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                                    aria-controls="collapseOne">
-                                    Sign In
-                                </button>
-
-                                <button *ngIf="isOpen != true" class="btn btn-link collapsed text-dark" type="button"
-                                    data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                                    aria-controls="collapseOne">
-                                    Sign In
+                                <button [ngClass]="{collapsed: section !== 'sign_in'}" class="btn btn-link" type="button" data-toggle="collapse"
+                                    data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Sign in
                                 </button>
                             </h2>
                         </div>
 
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne">
-                            <div>
+                        <div id="collapseOne" [ngClass]="{show: section == 'sign_in'}" class="collapse" aria-labelledby="headingOne"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
                                 <div class="row mt-2">
-                                    <form class="col-12" [formGroup]="loginForm" (ngSubmit)="onLogin()">
-                                        <div class="form-group col-12">
-                                            <label for="Email1">Email address</label>
-                                            <input formControlName="email" type="email" class="form-control" 
-                                            [ngClass]="{'is-invalid': formControl2.email.errors}">
+                                    <form class="col-12" [formGroup]="loginForm">
+                                    <div class="form-group col-12">
+                                        <label for="Email1">Email address</label>
+                                        <input formControlName="email" type="email" class="form-control"
+                                            [ngClass]="{'is-invalid':submitted && formControl2.email.errors}">
+                                    </div>
+                                    <div class="form-group col-12 mt-1">
+                                        <label for="Password1">Password</label>
+                                        <input formControlName="password" type="password" class="form-control"
+                                            [ngClass]="{'is-invalid':submitted && formControl2.password.errors}">
+                                    </div>
+                                    <div class="col-12 mt-1">
+                                        <div class="custom-control custom-switch mb-2">
+                                            <input formControlName="remember_me" type="checkbox"
+                                                class="custom-control-input" id="customSwitch1">
+                                            <label class="custom-control-label" for="customSwitch1">Remember
+                                                Me</label>
                                         </div>
-                                        <div class="form-group col-12 mt-1">
-                                            <label for="Password1">Password</label>
-                                            <input formControlName="password" type="password" class="form-control"
-                                            [ngClass]="{'is-invalid': formControl2.password.errors}">
+                                    </div>
+                                    <div *ngIf="loginForm.invalid" class="col-12 mt-2">
+                                        <a class="btn btn-block btn-secondary">Log In</a>
+                                    </div>
+                                    <div *ngIf="!loginForm.invalid" class="col-12 mt-2">    
+                                        <a href="javascript:void(0)" (click)="onLogin()" class="btn btn-block btn-primary">Log In</a>
+                                    </div>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h2 class="mb-0">
+                                <button [ngClass]="{collapsed: section !== 'sign_up'}" class="btn btn-link" type="button" data-toggle="collapse"
+                                    data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Create Account
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseTwo" [ngClass]="{show: section == 'sign_up'}" class="collapse" aria-labelledby="headingTwo"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <div class="row mt-2">
+                                    <form class="col-12" [formGroup]="registerForm">
+
+
+                                    <div class="form-group mb-2" style="height:80px;margin-left: 12px;">
+                                        <label for="status">
+                                            Status
+                                        </label>
+                                        <input type="checkbox" class="form-control" id="options-view-button">
+                                        <div id="select-button" class="form-group" class="brd">
+                                            <span *ngIf="isOpen">
+                                                <svg xmlns="http://www.w3.org/2000/svg" height='24px' width='24px' viewBox="0 0 64 64" aria-labelledby="title" aria-describedby="desc"
+                                                    role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <path data-name="layer2" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2"
+                                                        d="M38 33V5m10 10L38 5 28 15" stroke-linejoin="round" stroke-linecap="round"></path>
+                                                    <path data-name="layer1" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2" d="M4 7h6l8 36h42"
+                                                        stroke-linejoin="round" stroke-linecap="round"></path>
+                                                    <circle data-name="layer1" cx="24" cy="55" r="4" fill="none" stroke="#202020" stroke-miterlimit="10"
+                                                        stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></circle>
+                                                    <circle data-name="layer1" cx="50" cy="55" r="4" fill="none" stroke="#202020" stroke-miterlimit="10"
+                                                        stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></circle>
+                                                </svg>
+                                            
+                                            </span>
+                                            <span *ngIf="!isOpen">
+                                                <svg xmlns="http://www.w3.org/2000/svg" height='24px' width='24px' viewBox="0 0 64 64" aria-labelledby="title" aria-describedby="desc"
+                                                    role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <path data-name="layer2" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2"
+                                                        d="M38 4v28M28 22l10 10 10-10" stroke-linejoin="round" stroke-linecap="round"></path>
+                                                    <path data-name="layer1" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2" d="M4 8h6l8 36h42"
+                                                        stroke-linejoin="round" stroke-linecap="round"></path>
+                                                    <circle data-name="layer1" cx="24" cy="56" r="4" fill="none" stroke="#202020" stroke-miterlimit="10"
+                                                        stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></circle>
+                                                    <circle data-name="layer1" cx="50" cy="56" r="4" fill="none" stroke="#202020" stroke-miterlimit="10"
+                                                        stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></circle>
+                                                </svg>
+                                            
+                                            </span>
+                                            <span id='selected'>SELLER</span>
+                                            <span class="float-right">
+                                                <svg xmlns="http://www.w3.org/2000/svg" height='16px' width='16px' viewBox="0 0 64 64" aria-labelledby="title" aria-describedby="desc"
+                                                    role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <circle data-name="layer2" cx="32" cy="32" r="30" fill="none" stroke="#202020" stroke-miterlimit="10"
+                                                        stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></circle>
+                                                    <path data-name="layer1" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2"
+                                                        d="M32.002 14v35.012M21 36.004l11 13 11-13" stroke-linejoin="round" stroke-linecap="round"></path>
+                                                </svg>
+                                            </span>
                                         </div>
-                                        <div class="col-12 mt-1">
-                                            <div class="custom-control custom-switch mb-2">
-                                                <input formControlName="remember_me" type="checkbox" class="custom-control-input" id="customSwitch1">
-                                                <label class="custom-control-label" for="customSwitch1">Remember Me</label>
+                                        <div id="options">
+                                            <div class="option">
+                                                <input class="s-c top" formControlName="status" type="radio"
+                                                    value="Seller">
+                                                <input class="s-c bottom" formControlName="status" type="radio"
+                                                    value="Seller">
+                                                <i>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height='24px' width='24px' viewBox="0 0 64 64" aria-labelledby="title"
+                                                        aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                        <path data-name="layer2" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2"
+                                                            d="M38 33V5m10 10L38 5 28 15" stroke-linejoin="round" stroke-linecap="round"></path>
+                                                        <path data-name="layer1" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2" d="M4 7h6l8 36h42"
+                                                            stroke-linejoin="round" stroke-linecap="round"></path>
+                                                        <circle data-name="layer1" cx="24" cy="55" r="4" fill="none" stroke="#202020" stroke-miterlimit="10"
+                                                            stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></circle>
+                                                        <circle data-name="layer1" cx="50" cy="55" r="4" fill="none" stroke="#202020" stroke-miterlimit="10"
+                                                            stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></circle>
+                                                    </svg>
+                                                </i>
+                                                <span class="label">SELLER</span>
+                                            </div>
+                                            <div class="option">
+                                                <input class="s-c top" formControlName="status" type="radio"
+                                                    value="Buyer">
+                                                <input class="s-c bottom" formControlName="status" type="radio"
+                                                    value="Buyer">
+                                                <i>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height='24px' width='24px' viewBox="0 0 64 64" aria-labelledby="title"
+                                                        aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                        <path data-name="layer2" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2"
+                                                            d="M38 4v28M28 22l10 10 10-10" stroke-linejoin="round" stroke-linecap="round"></path>
+                                                        <path data-name="layer1" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2" d="M4 8h6l8 36h42"
+                                                            stroke-linejoin="round" stroke-linecap="round"></path>
+                                                        <circle data-name="layer1" cx="24" cy="56" r="4" fill="none" stroke="#202020" stroke-miterlimit="10"
+                                                            stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></circle>
+                                                        <circle data-name="layer1" cx="50" cy="56" r="4" fill="none" stroke="#202020" stroke-miterlimit="10"
+                                                            stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></circle>
+                                                    </svg>
+                                                </i>
+                                                <span class="label">BUYER</span>
+
                                             </div>
                                         </div>
-                                        <div *ngIf="loginForm.invalid" class="col-12 mt-2">
-                                            <button type="submit" class="btn btn-block btn-primary" disabled>Log In</button>
-                                        </div>
-                                        <div *ngIf="!loginForm.invalid" class="col-12 mt-2">
-                                            <button type="submit" class="btn btn-block btn-primary">Log In</button>
-                                        </div>
-                                    </form> 
+
+                                    </div>
+
+
+                                    <div class="form-group col-12 mt-1">
+                                        <label for="Email2">Email address</label>
+                                        <input formControlName="email" type="email" class="form-control">
+                                    </div>
+                                    <div class="form-group col-12 mt-1">
+                                        <label for="Password3">Password</label>
+                                        <input formControlName="password" type="password" class="form-control">
+                                    </div>
+                                    <div class="form-group col-12 mt-1">
+                                        <label for="Password4">Repeat Password</label>
+                                        <input formControlName="repeat_password" type="password"
+                                            class="form-control">
+                                    </div>
+                                    <div *ngIf="registerForm.invalid" class="col-12 mt-2">
+                                        <a class="btn btn-block btn-secondary">Register</a>
+                                    </div>
+                                    <div *ngIf="!registerForm.invalid" class="col-12 mt-2">
+                                        <a href="javascript:void(0)" (click)="onSubmit()" class="btn btn-block btn-primary">Register</a>
+                                    </div>
+                                </form>
                                 </div>
                             </div>
                         </div>
-                    </accordion-group>
-                    <accordion-group>
-                        <div accordion-heading id="headingTwo">
-                            <h2 class="mb-0">
-                                <button *ngIf="isOpen == true" class="btn btn-link text-dark"  type="button" data-toggle="collapse"
-                                    data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Create Account
-                                </button>
-
-                                <button *ngIf="isOpen != true" class="btn btn-link collapsed text-dark" type="button" data-toggle="collapse"
-                                    data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Create Account
-                                </button>
-                                
-                            </h2>
-                        </div>
-
-
-                        <div id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                            <div>
-                                <div class="row mt-2">
-                                    <form class="col-12" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-                                        <div class="form-group col-12">
-                                            <label for="Email2">Email address</label>
-                                            <input formControlName="email" type="email" class="form-control" >
-                                        </div>
-                                        <div class="form-group col-12 mt-1">
-                                            <label for="Password3">Password</label>
-                                            <input formControlName="password" type="password" class="form-control" >
-                                        </div>
-                                        <div class="form-group col-12 mt-1">
-                                            <label for="Password4">Repeat Password</label>
-                                            <input formControlName="repeat_password" type="password" class="form-control" >
-                                        </div>
-                                        <div *ngIf="registerForm.invalid" class="col-12 mt-2">
-                                            <button type="submit" class="btn btn-block btn-primary" disabled>Register</button>
-                                        </div>
-                                        <div *ngIf="!registerForm.invalid" class="col-12 mt-2">
-                                            <button type="submit" class="btn btn-block btn-primary">Register</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </accordion-group>
-                </accordion>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
