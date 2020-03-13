@@ -22,6 +22,7 @@ class Good extends Model
         'description',
         'image',
         'price',
+        'category',
     ];
 
     public function user(){

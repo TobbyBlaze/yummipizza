@@ -1,0 +1,492 @@
+<title>{{title}}</title>
+
+<section class="py-9" style="margin-top: 100px !important;">
+    <div class="container-fluid">
+        <div class="row gutter-4 justify-content-between">
+
+
+            <!-- sidebar -->
+            <aside class="col-md-3">
+                <div class="nav nav-pills flex-column lavalamp" id="sidebar-1" role="tablist">
+                    <a [ngClass]="{active: fragment == 'help_center'}" class="nav-link" data-toggle="tab" href="#contact" role="tab"
+                        aria-controls="contact" aria-selected="false">Contact us</a>
+                    <a [ngClass]="{active: fragment == 'frequently_asked_questions'}" class="nav-link" data-toggle="tab" href="#faq" role="tab"
+                        aria-controls="faq"  aria-selected="false">FAQ</a>
+                </div>
+            </aside>
+            <!-- / sidebar -->
+
+            <!-- content -->
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col">
+                        <div class="tab-content" id="myTabContent">
+
+                            <!-- About -->
+
+                            <!-- Contact Us -->
+                            <div [ngClass]="{active: fragment == 'help_center', show: fragment == 'help_center'}" class="tab-pane fade" id="contact" role="tabpanel"
+                                aria-labelledby="contact">
+
+
+                                <!-- breadcrumbs -->
+                                <section class="breadcrumbs separator-bottom">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col">
+                                                <nav aria-label="breadcrumb">
+                                                    <ol class="breadcrumb">
+                                                        <li class="breadcrumb-item"><a
+                                                                routerLink='/home'>Home</a></li>
+                                                        <li class="breadcrumb-item">Pages</li>
+                                                        <li class="breadcrumb-item active"
+                                                            aria-current="page">Contact Us</li>
+                                                    </ol>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section class="py-5">
+                                    <div class="container">
+                                        <div class="row justify-content-between">
+                                            <div class="col-md-6">
+                                                <h1 class="font-weight-light"><b class="d-block">Get in
+                                                        touch!</b> It's free.</h1>
+                                            </div>
+                                        </div>
+                                        <div class="row gutter-4">
+                                            <div class="col-md-5 col-lg-6">
+                                                <span class="eyebrow">Find us</span>
+                                                <p class="lead my-1 text-dark">123 6th St.
+                                                    <br>Melbourne, FL 32904 <br>+01 123 456 7890</p>
+                                                <a href="#!" class="eyebrow underline action">Get
+                                                    Routes</a>
+                                            </div>
+                                            <div class="col-md-5 col-lg-6">
+                                                <span class="eyebrow">Contact Us</span>
+                                                <p class="lead my-1 text-dark">
+                                                    Phone: +1 234 567 89 <br>
+                                                    Fax: +1 234 567 89
+                                                </p>
+                                                <a href="#!"
+                                                    class="eyebrow underline action">contact@webuildthemes.com</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!-- contact form -->
+                                <section>
+                                    <div class="container">
+                                        <div class="row gutter-4">
+                                            <div class="col-lg-4">
+                                                <h2 class="font-weight-light"><b>Get in touch</b> with
+                                                    us by filling out our contact form.</h2>
+                                                <p>We don't spam. Promise!</p>
+                                            </div>
+                                            <div class="col-lg-8 pl-lg-5">
+                                                <div class="row gutter-2">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="inputName">First Name</label>
+                                                        <input type="text" class="form-control"
+                                                            id="inputName" placeholder="">
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="inputEmail">Email</label>
+                                                        <input type="email" class="form-control"
+                                                            id="inputEmail" placeholder="">
+                                                    </div>
+                                                    <div class="form-group col-12">
+                                                        <label for="inputNameSecond">Subject</label>
+                                                        <input type="text" class="form-control"
+                                                            id="inputNameSecond" placeholder="">
+                                                    </div>
+                                                    <div class="form-group col-12">
+                                                        <label for="inputTextarea">Message</label>
+                                                        <textarea class="form-control"
+                                                            id="inputTextarea" rows="3"></textarea>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="custom-control custom-switch mb-2">
+                                                            <input type="checkbox"
+                                                                class="custom-control-input"
+                                                                id="customSwitch1">
+                                                            <label
+                                                                class="custom-control-label text-muted"
+                                                                for="customSwitch1">Subscribe me to
+                                                                weekly newsletter</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <a href="#!" style="border-radius: unset;" class="btn btn-info mt-2">Send
+                                                            Message</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+
+
+                            </div>
+
+                            <!-- FAQ -->
+                            <div [ngClass]="{active: fragment == 'frequently_asked_questions', show: fragment == 'frequently_asked_questions'}" class="tab-pane fade" id="faq" role="tabpanel"
+                                aria-labelledby="faq">
+                                <!-- breadcrumbs -->
+                                <section class="breadcrumbs separator-bottom">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col">
+                                                <nav aria-label="breadcrumb">
+                                                    <ol class="breadcrumb">
+                                                        <li class="breadcrumb-item"><a
+                                                                routerLink='/'>Home</a></li>
+                                                        <li class="breadcrumb-item active"
+                                                            aria-current="page">Frequently Asked Questions</li>
+                                                    </ol>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+
+                                <!-- hero -->
+                                <section>
+                                    <div class="container py-3">
+                                        <div class="row">
+                                            <div class="col">
+                                                <h1>FAQ</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+
+
+                                <section class="bg-light py-5">
+                                    <div class="container">
+                                        <div class="row gutter-2 gutter-md-4">
+                                            <div class="col-md-4 col-lg-3">
+                                                <h2 class="h3 mb-4 mb-mb-0">Order</h2>
+                                            </div>
+                                            <div class="col-md-8 col-lg-9">
+                                                <div class="accordion accordion-minimal"
+                                                    id="accordion-1">
+                                                    <div class="card">
+                                                        <div class="card-header" id="heading-1-1">
+                                                            <h2 class="mb-0">
+                                                                <button class="btn btn-link"
+                                                                    type="button" data-toggle="collapse"
+                                                                    data-target="#collapse-1-1"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="collapse-1-1">
+                                                                    Can I add items to my order ?
+                                                                </button>
+                                                            </h2>
+                                                        </div>
+
+                                                        <div id="collapse-1-1" class="collapse"
+                                                            aria-labelledby="heading-1-1"
+                                                            data-parent="#accordion-1">
+                                                            <div class="card-body">
+                                                                <p>Lorem ipsum dolor sit amet,
+                                                                    consectetur adipisicing elit. Illum
+                                                                    ut ipsam optio et doloribus aut,
+                                                                    magnam repellendus nostrum earum
+                                                                    consequatur. Sunt voluptate, aperiam
+                                                                    voluptatum, rem vero deleniti veniam
+                                                                    omnis ipsum.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-header" id="heading-1-2">
+                                                            <h2 class="mb-0">
+                                                                <button class="btn btn-link collapsed"
+                                                                    type="button" data-toggle="collapse"
+                                                                    data-target="#collapse-1-2"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="collapse-1-2">
+                                                                    Can I cancel my order ?
+                                                                </button>
+                                                            </h2>
+                                                        </div>
+                                                        <div id="collapse-1-2" class="collapse"
+                                                            aria-labelledby="heading-1-2"
+                                                            data-parent="#accordion-1">
+                                                            <div class="card-body">
+                                                                <p>Lorem ipsum dolor sit amet,
+                                                                    consectetur adipisicing elit.
+                                                                    Aspernatur sint illo deleniti quod
+                                                                    harum cupiditate asperiores
+                                                                    molestias, enim quam fugit debitis,
+                                                                    dolorem omnis tenetur veniam
+                                                                    delectus non doloribus tempora,
+                                                                    dignissimos.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-header" id="heading-1-3">
+                                                            <h2 class="mb-0">
+                                                                <button class="btn btn-link collapsed"
+                                                                    type="button" data-toggle="collapse"
+                                                                    data-target="#collapse-1-3"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="collapse-1-3">
+                                                                    Can I change my address ?
+                                                                </button>
+                                                            </h2>
+                                                        </div>
+                                                        <div id="collapse-1-3" class="collapse"
+                                                            aria-labelledby="heading-1-3"
+                                                            data-parent="#accordion-1">
+                                                            <div class="card-body">
+                                                                <p>Lorem ipsum dolor sit amet,
+                                                                    consectetur adipisicing elit. Vel
+                                                                    corporis magni sit dolore nam modi
+                                                                    beatae, inventore, dolor dolorem. Ad
+                                                                    quo commodi assumenda voluptates
+                                                                    illum porro adipisci in aliquid
+                                                                    distinctio?</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-header" id="heading-1-4">
+                                                            <h2 class="mb-0">
+                                                                <button class="btn btn-link collapsed"
+                                                                    type="button" data-toggle="collapse"
+                                                                    data-target="#collapse-1-4"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="collapse-1-4">
+                                                                    Can I merge my orders ?
+                                                                </button>
+                                                            </h2>
+                                                        </div>
+                                                        <div id="collapse-1-4" class="collapse"
+                                                            aria-labelledby="heading-1-4"
+                                                            data-parent="#accordion-1">
+                                                            <div class="card-body">
+                                                                <p>Lorem ipsum dolor sit amet,
+                                                                    consectetur adipisicing elit. Vel
+                                                                    corporis magni sit dolore nam modi
+                                                                    beatae, inventore, dolor dolorem. Ad
+                                                                    quo commodi assumenda voluptates
+                                                                    illum porro adipisci in aliquid
+                                                                    distinctio?</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section class="py-5">
+                                    <div class="container">
+                                        <div class="row gutter-2 gutter-md-4">
+                                            <div class="col-md-4 col-lg-3">
+                                                <h2 class="h3 mb-4 mb-mb-0">Delivery</h2>
+                                            </div>
+                                            <div class="col-md-8 col-lg-9">
+                                                <div class="accordion accordion-minimal"
+                                                    id="accordion-2">
+                                                    <div class="card">
+                                                        <div class="card-header" id="heading-2-1">
+                                                            <h2 class="mb-0">
+                                                                <button class="btn btn-link"
+                                                                    type="button" data-toggle="collapse"
+                                                                    data-target="#collapse-2-1"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="collapse-2-1">
+                                                                    Which carrier will deliver my order
+                                                                    ?
+                                                                </button>
+                                                            </h2>
+                                                        </div>
+
+                                                        <div id="collapse-2-1" class="collapse"
+                                                            aria-labelledby="heading-2-1"
+                                                            data-parent="#accordion-2">
+                                                            <div class="card-body">
+                                                                Anim pariatur cliche reprehenderit, enim
+                                                                eiusmod high life accusamus terry
+                                                                richardson ad squid. 3 wolf moon officia
+                                                                aute, non cupidatat skateboard dolor
+                                                                brunch. Food truck quinoa nesciunt
+                                                                laborum eiusmod. Brunch 3 wolf moon
+                                                                tempor, sunt aliqua put a bird on it
+                                                                squid single-origin coffee nulla
+                                                                assumenda shoreditch et. Nihil anim
+                                                                keffiyeh helvetica, craft beer labore
+                                                                wes anderson cred nesciunt sapiente ea
+                                                                proident. Ad vegan excepteur butcher
+                                                                vice lomo. Leggings occaecat craft beer
+                                                                farm-to-table, raw denim aesthetic synth
+                                                                nesciunt you probably haven't heard of
+                                                                them accusamus labore sustainable VHS.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-header" id="heading-2-2">
+                                                            <h2 class="mb-0">
+                                                                <button class="btn btn-link collapsed"
+                                                                    type="button" data-toggle="collapse"
+                                                                    data-target="#collapse-2-2"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="collapse-2-2">
+                                                                    Where is my order ?
+                                                                </button>
+                                                            </h2>
+                                                        </div>
+                                                        <div id="collapse-2-2" class="collapse"
+                                                            aria-labelledby="heading-2-2"
+                                                            data-parent="#accordion-2">
+                                                            <div class="card-body">
+                                                                Anim pariatur cliche reprehenderit, enim
+                                                                eiusmod high life accusamus terry
+                                                                richardson ad squid. 3 wolf moon officia
+                                                                aute, non cupidatat skateboard dolor
+                                                                brunch. Food truck quinoa nesciunt
+                                                                laborum eiusmod. Brunch 3 wolf moon
+                                                                tempor, sunt aliqua put a bird on it
+                                                                squid single-origin coffee nulla
+                                                                assumenda shoreditch et. Nihil anim
+                                                                keffiyeh helvetica, craft beer labore
+                                                                wes anderson cred nesciunt sapiente ea
+                                                                proident. Ad vegan excepteur butcher
+                                                                vice lomo. Leggings occaecat craft beer
+                                                                farm-to-table, raw denim aesthetic synth
+                                                                nesciunt you probably haven't heard of
+                                                                them accusamus labore sustainable VHS.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-header" id="heading-2-3">
+                                                            <h2 class="mb-0">
+                                                                <button class="btn btn-link collapsed"
+                                                                    type="button" data-toggle="collapse"
+                                                                    data-target="#collapse-2-3"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="collapse-2-3">
+                                                                    Will I have to pay some duties ?
+                                                                </button>
+                                                            </h2>
+                                                        </div>
+                                                        <div id="collapse-2-3" class="collapse"
+                                                            aria-labelledby="heading-2-3"
+                                                            data-parent="#accordion-2">
+                                                            <div class="card-body">
+                                                                Anim pariatur cliche reprehenderit, enim
+                                                                eiusmod high life accusamus terry
+                                                                richardson ad squid. 3 wolf moon officia
+                                                                aute, non cupidatat skateboard dolor
+                                                                brunch. Food truck quinoa nesciunt
+                                                                laborum eiusmod. Brunch 3 wolf moon
+                                                                tempor, sunt aliqua put a bird on it
+                                                                squid single-origin coffee nulla
+                                                                assumenda shoreditch et. Nihil anim
+                                                                keffiyeh helvetica, craft beer labore
+                                                                wes anderson cred nesciunt sapiente ea
+                                                                proident. Ad vegan excepteur butcher
+                                                                vice lomo. Leggings occaecat craft beer
+                                                                farm-to-table, raw denim aesthetic synth
+                                                                nesciunt you probably haven't heard of
+                                                                them accusamus labore sustainable VHS.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section class="bg-light py-5">
+                                    <div class="container">
+                                        <div class="row gutter-2 gutter-md-4">
+                                            <div class="col-md-4 col-lg-3">
+                                                <h2 class="h3 mb-4 mb-mb-0">Returns</h2>
+                                            </div>
+                                            <div class="col-md-8 col-lg-9">
+                                                <div class="accordion accordion-minimal"
+                                                    id="accordion-3">
+                                                    <div class="card">
+                                                        <div class="card-header" id="heading-3-1">
+                                                            <h2 class="mb-0">
+                                                                <button class="btn btn-link"
+                                                                    type="button" data-toggle="collapse"
+                                                                    data-target="#collapse-3-1"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="collapse-3-1">
+                                                                    I've received a wrong item
+                                                                </button>
+                                                            </h2>
+                                                        </div>
+
+                                                        <div id="collapse-3-1" class="collapse"
+                                                            aria-labelledby="heading-3-1"
+                                                            data-parent="#accordion-3">
+                                                            <div class="card-body">
+                                                                <p>Lorem ipsum dolor sit amet,
+                                                                    consectetur adipisicing elit. Illum
+                                                                    ut ipsam optio et doloribus aut,
+                                                                    magnam repellendus nostrum earum
+                                                                    consequatur. Sunt voluptate, aperiam
+                                                                    voluptatum, rem vero deleniti veniam
+                                                                    omnis ipsum.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-header" id="heading-3-2">
+                                                            <h2 class="mb-0">
+                                                                <button class="btn btn-link collapsed"
+                                                                    type="button" data-toggle="collapse"
+                                                                    data-target="#collapse-3-2"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="collapse-3-2">
+                                                                    Can I excange my order ?
+                                                                </button>
+                                                            </h2>
+                                                        </div>
+                                                        <div id="collapse-3-2" class="collapse"
+                                                            aria-labelledby="heading-3-2"
+                                                            data-parent="#accordion-3">
+                                                            <div class="card-body">
+                                                                <p>Lorem ipsum dolor sit amet,
+                                                                    consectetur adipisicing elit.
+                                                                    Aspernatur sint illo deleniti quod
+                                                                    harum cupiditate asperiores
+                                                                    molestias, enim quam fugit debitis,
+                                                                    dolorem omnis tenetur veniam
+                                                                    delectus non doloribus tempora,
+                                                                    dignissimos.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- / content -->
+
+        </div>
+    </div>
+</section>

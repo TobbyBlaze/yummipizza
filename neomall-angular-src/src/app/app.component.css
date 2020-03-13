@@ -1,0 +1,57 @@
+svg {
+    margin-top: -4px;
+    margin-right: 3px;
+}
+
+#neomall-brand {
+    position: fixed;
+    left:0;
+    margin:20px;
+    display: none;
+}
+
+.neo-title {
+    padding: 0 20px;
+    display: block;
+    margin-bottom: 0.3125rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    font-weight: 600;
+    color: #adb5bd;
+}
+
+.neo {
+    position: relative;
+    height: 35px;
+    width: fit-content;
+    font-size: 11px !important;
+    text-transform: capitalize !important;
+}
+
+.neo::before {
+    content:'';
+    width: 0;
+    right:0;
+    bottom:0;
+    border-bottom: 1px solid black;
+    position: absolute;
+     -webkit-transition: all 1s !important;
+    -moz-transition: all 1s !important;
+    transition: all 1s !important;
+    -webkit-transition-delay: 0s;
+    -moz-transition-delay: 0s;
+    transition-delay: 0s;
+}
+
+.neo:hover::before {
+    left:0;
+    width:100%;
+}
+
+.neo-ul {
+    position: relative !important;
+    top: 0 !important;
+    padding: 10px;
+}
+

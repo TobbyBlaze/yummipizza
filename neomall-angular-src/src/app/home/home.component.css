@@ -1,0 +1,92 @@
+.photography-entry {
+    height: 280px;
+    display: block;
+    z-index: 0;
+    position: relative
+}
+
+@media(max-width: 1024px){
+    .photography-entry {
+        height: 200px;
+    }
+}
+
+@media(max-width: 567px){
+    .photography-entry {
+        height: 150px;
+    }
+
+    .vendor{
+        font-size:13px !important;
+        padding:0.46875rem 0.9375rem;
+    }
+}
+
+.photography-entry .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: #000;
+    opacity: 0;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    transition: all .3s ease
+}
+
+@media(max-width:767.98px) {
+    .photography-entry .overlay {
+        opacity: .3
+    }
+}
+
+.photography-entry .text {
+    opacity: 0;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    transition: all .3s ease
+}
+
+.photography-entry .text h3 {
+    color: #fff;
+    font-size: 20px;
+    letter-spacing:2px;
+}
+
+.photography-entry .text span.tag {
+    font-size: 14px;
+    letter-spacing: 3px;
+    font-family: "Open sans";
+    color: rgba(255, 255, 255, .8);
+}
+
+@media(max-width:767.98px) {
+    .photography-entry .text {
+        opacity: 1
+    }
+}
+
+.photography-entry:hover .overlay,
+.photography-entry:focus .overlay {
+    opacity: .7
+}
+
+.photography-entry:hover .text,
+.photography-entry:focus .text {
+    opacity: 1
+}
+
+.hero-wrap,
+.img,
+.blog-img,
+.user-img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center
+}

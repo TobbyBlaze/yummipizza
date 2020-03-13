@@ -4,6 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "6e8b7bbb004cd355d964d8ec81a5687b",
     "packages": [
         {
@@ -70,6 +71,11 @@
             "time": "2018-07-24T23:27:56+00:00"
         },
         {
+=======
+    "content-hash": "94d4bf9ac7f4a933030e46a346ee2917",
+    "packages": [
+        {
+>>>>>>> b1a1aa25e78498c4c154bbd983aed9c65cfbf707
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
             "source": {
@@ -232,6 +238,7 @@
             "time": "2019-10-30T14:39:59+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "dompdf/dompdf",
             "version": "v0.8.3",
             "source": {
@@ -298,6 +305,8 @@
             "time": "2018-12-14T02:40:31+00:00"
         },
         {
+=======
+>>>>>>> b1a1aa25e78498c4c154bbd983aed9c65cfbf707
             "name": "dragonmantank/cron-expression",
             "version": "v2.3.0",
             "source": {
@@ -510,6 +519,7 @@
             "time": "2019-09-03T16:45:42+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "firebase/php-jwt",
             "version": "v5.0.0",
             "source": {
@@ -745,6 +755,8 @@
             "time": "2019-07-01T23:21:34+00:00"
         },
         {
+=======
+>>>>>>> b1a1aa25e78498c4c154bbd983aed9c65cfbf707
             "name": "jakub-onderka/php-console-color",
             "version": "v0.2",
             "source": {
@@ -833,6 +845,7 @@
             "time": "2018-09-29T18:48:56+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "laravel/cashier",
             "version": "v10.5.2",
             "source": {
@@ -907,6 +920,8 @@
             "time": "2020-01-07T17:45:45+00:00"
         },
         {
+=======
+>>>>>>> b1a1aa25e78498c4c154bbd983aed9c65cfbf707
             "name": "laravel/framework",
             "version": "v5.8.35",
             "source": {
@@ -1055,6 +1070,7 @@
             "time": "2019-09-03T16:44:30+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "laravel/passport",
             "version": "v4.0.3",
             "source": {
@@ -1124,6 +1140,8 @@
             "time": "2017-09-24T14:21:39+00:00"
         },
         {
+=======
+>>>>>>> b1a1aa25e78498c4c154bbd983aed9c65cfbf707
             "name": "laravel/tinker",
             "version": "v1.0.10",
             "source": {
@@ -1174,6 +1192,7 @@
             "authors": [
                 {
                     "name": "Taylor Otwell",
+<<<<<<< HEAD
                     "email": "taylor@laravel.com"
                 }
             ],
@@ -1290,6 +1309,19 @@
                 "listener"
             ],
             "time": "2018-11-26T11:52:41+00:00"
+=======
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Powerful REPL for the Laravel framework.",
+            "keywords": [
+                "REPL",
+                "Tinker",
+                "laravel",
+                "psysh"
+            ],
+            "time": "2019-08-07T15:10:45+00:00"
+>>>>>>> b1a1aa25e78498c4c154bbd983aed9c65cfbf707
         },
         {
             "name": "league/flysystem",
@@ -1376,6 +1408,7 @@
             "time": "2019-10-16T21:01:05+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "league/oauth2-server",
             "version": "6.1.1",
             "source": {
@@ -1526,6 +1559,8 @@
             "time": "2019-12-27T21:58:31+00:00"
         },
         {
+=======
+>>>>>>> b1a1aa25e78498c4c154bbd983aed9c65cfbf707
             "name": "monolog/monolog",
             "version": "1.25.2",
             "source": {
@@ -1788,6 +1823,7 @@
         },
         {
             "name": "paragonie/random_compat",
+<<<<<<< HEAD
             "version": "v2.0.18",
             "source": {
                 "type": "git",
@@ -1805,16 +1841,39 @@
             },
             "require-dev": {
                 "phpunit/phpunit": "4.*|5.*"
+=======
+            "version": "v9.99.99",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paragonie/random_compat.git",
+                "reference": "84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95",
+                "reference": "84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*|5.*",
+                "vimeo/psalm": "^1"
+>>>>>>> b1a1aa25e78498c4c154bbd983aed9c65cfbf707
             },
             "suggest": {
                 "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
             },
             "type": "library",
+<<<<<<< HEAD
             "autoload": {
                 "files": [
                     "lib/random.php"
                 ]
             },
+=======
+>>>>>>> b1a1aa25e78498c4c154bbd983aed9c65cfbf707
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -1833,6 +1892,7 @@
                 "pseudorandom",
                 "random"
             ],
+<<<<<<< HEAD
             "time": "2019-01-03T20:59:08+00:00"
         },
         {
@@ -1911,6 +1971,9 @@
             "description": "A library to read, parse and export to PDF SVG files.",
             "homepage": "https://github.com/PhenX/php-svg-lib",
             "time": "2019-09-11T20:02:13+00:00"
+=======
+            "time": "2018-07-02T15:55:56+00:00"
+>>>>>>> b1a1aa25e78498c4c154bbd983aed9c65cfbf707
         },
         {
             "name": "phpoption/phpoption",
@@ -1963,6 +2026,7 @@
             "time": "2019-11-06T22:27:00+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "phpseclib/phpseclib",
             "version": "2.0.23",
             "source": {
@@ -2055,6 +2119,8 @@
             "time": "2019-09-17T03:41:22+00:00"
         },
         {
+=======
+>>>>>>> b1a1aa25e78498c4c154bbd983aed9c65cfbf707
             "name": "psr/container",
             "version": "1.0.0",
             "source": {
@@ -2104,6 +2170,7 @@
             "time": "2017-02-14T16:28:37+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "psr/http-message",
             "version": "1.0.1",
             "source": {
@@ -2154,6 +2221,8 @@
             "time": "2016-08-06T14:39:51+00:00"
         },
         {
+=======
+>>>>>>> b1a1aa25e78498c4c154bbd983aed9c65cfbf707
             "name": "psr/log",
             "version": "1.1.2",
             "source": {
@@ -2308,6 +2377,7 @@
             "authors": [
                 {
                     "name": "Justin Hileman",
+<<<<<<< HEAD
                     "email": "justin@justinhileman.info",
                     "homepage": "http://justinhileman.com"
                 }
@@ -2361,6 +2431,21 @@
             ],
             "description": "A polyfill for getallheaders.",
             "time": "2019-03-08T08:55:37+00:00"
+=======
+                    "email": "justin@justinhileman.info",
+                    "homepage": "http://justinhileman.com"
+                }
+            ],
+            "description": "An interactive shell for modern PHP.",
+            "homepage": "http://psysh.org",
+            "keywords": [
+                "REPL",
+                "console",
+                "interactive",
+                "shell"
+            ],
+            "time": "2019-11-27T22:44:29+00:00"
+>>>>>>> b1a1aa25e78498c4c154bbd983aed9c65cfbf707
         },
         {
             "name": "ramsey/uuid",
@@ -2445,6 +2530,7 @@
             "time": "2018-07-19T23:38:55+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "sabberworm/php-css-parser",
             "version": "8.3.0",
             "source": {
@@ -2547,6 +2633,8 @@
             "time": "2020-01-07T02:09:57+00:00"
         },
         {
+=======
+>>>>>>> b1a1aa25e78498c4c154bbd983aed9c65cfbf707
             "name": "swiftmailer/swiftmailer",
             "version": "v6.2.3",
             "source": {
@@ -3172,6 +3260,7 @@
             "time": "2019-11-21T07:08:15+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "symfony/intl",
             "version": "v5.0.2",
             "source": {
@@ -3247,6 +3336,8 @@
             "time": "2019-11-26T23:25:11+00:00"
         },
         {
+=======
+>>>>>>> b1a1aa25e78498c4c154bbd983aed9c65cfbf707
             "name": "symfony/mime",
             "version": "v5.0.0",
             "source": {
@@ -3426,6 +3517,7 @@
             "time": "2019-11-27T13:56:44+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "symfony/polyfill-intl-icu",
             "version": "v1.13.1",
             "source": {
@@ -3484,6 +3576,8 @@
             "time": "2019-11-27T13:56:44+00:00"
         },
         {
+=======
+>>>>>>> b1a1aa25e78498c4c154bbd983aed9c65cfbf707
             "name": "symfony/polyfill-intl-idn",
             "version": "v1.13.0",
             "source": {
@@ -3767,6 +3861,7 @@
             "time": "2019-10-28T20:30:34+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "symfony/psr-http-message-bridge",
             "version": "v1.3.0",
             "source": {
@@ -3832,6 +3927,8 @@
             "time": "2019-11-25T19:33:50+00:00"
         },
         {
+=======
+>>>>>>> b1a1aa25e78498c4c154bbd983aed9c65cfbf707
             "name": "symfony/routing",
             "version": "v4.4.0",
             "source": {
@@ -4279,6 +4376,7 @@
                 "environment"
             ],
             "time": "2019-09-10T21:37:39+00:00"
+<<<<<<< HEAD
         },
         {
             "name": "zendframework/zend-diactoros",
@@ -4342,6 +4440,8 @@
             ],
             "abandoned": "laminas/laminas-diactoros",
             "time": "2019-08-06T17:53:53+00:00"
+=======
+>>>>>>> b1a1aa25e78498c4c154bbd983aed9c65cfbf707
         }
     ],
     "packages-dev": [

@@ -89,6 +89,7 @@ class GoodsController extends Controller
                 $good->name = $request->input('name');
                 $good->description = $request->input('description');
                 $good->price = $request->input('price');
+                $good->price = $request->input('category');
                 $good->user_id = auth()->user()->id;
             
                 if($extension == "jpg" || $extension == "jpeg" || $extension == "png" || $extension == "gif"){
@@ -109,6 +110,7 @@ class GoodsController extends Controller
                 $good->name = $request->input('name');
                 $good->description = $request->input('description');
                 $good->price = $request->input('price');
+                $good->price = $request->input('category');
                 $good->user_id = auth()->user()->id;
             
                 $good->save();
@@ -133,9 +135,6 @@ class GoodsController extends Controller
 
         $user = User::find($id);
 
-        $users = User::where('users.status', '!=', auth()->user()->status)->orWhere('users.department', '=', auth()->user()->department)->orWhere('users.school', '=', auth()->user()->school)->orWhere('users.college', '=', auth()->user()->college)->orderBy('users.created_at', 'desc')->paginate(10);
-
-        
         $goods = Good::all();
 
         Good::where('id', '=', $id)
@@ -235,6 +234,7 @@ class GoodsController extends Controller
                 $good->name = $request->input('name');
                 $good->description = $request->input('description');
                 $good->price = $request->input('price');
+                $good->price = $request->input('category');
                 $good->user_id = auth()->user()->id;
                 //$good->document = $filenameToStore;
 
@@ -259,6 +259,7 @@ class GoodsController extends Controller
                 $good->name = $request->input('name');
                 $good->description = $request->input('description');
                 $good->price = $request->input('price');
+                $good->price = $request->input('category');
                 $good->user_id = auth()->user()->id;
                 //$good->document = $filenameToStore;
                 

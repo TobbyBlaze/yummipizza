@@ -1,0 +1,176 @@
+<title>{{title}}</title>
+
+<!-- breadcrumbs -->
+<section class="breadcrumbs pt-7 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a routerLink="/home" >Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- hero -->
+<section class="py-2">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <h1>Your Cart</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-3 pb-4">
+    <div class="container">
+        <div class="row mb-1 d-none d-lg-flex">
+            <div class="col-lg-8">
+                <div class="row pr-6">
+                    <div class="col-lg-6"><span class="eyebrow">Product</span></div>
+                    <div class="col-lg-2 text-center"><span class="eyebrow">Price</span></div>
+                    <div class="col-lg-2 text-center"><span class="eyebrow">Quantity</span></div>
+                    <div class="col-lg-2 text-center"><span class="eyebrow">Total</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="row gutter-2 gutter-lg-4 justify-content-end">
+
+            <div class="col-lg-8 cart-item-list">
+
+                <!-- cart item -->
+                <div class="cart-item">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-lg-6">
+                            <div class="media media-product">
+                                <a href="#!"><img src="../assets/images/demo/product-4.jpg" alt="Image"></a>
+                                <div class="media-body">
+                                    <h5 class="media-title">Analog Magazine Rack</h5>
+                                    <span class="small">Red</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-lg-2 text-center">
+                            <span class="cart-item-price">$120</span>
+                        </div>
+                        <div class="col-4 col-lg-2 text-center">
+                            <div class="counter">
+                                <span class="counter-minus icon-minus" field='qty-1'></span>
+                                <input type='text' name='qty-1' class="counter-value" value="2" min="1" max="10">
+                                <span class="counter-plus icon-plus" field='qty-1'></span>
+                            </div>
+                        </div>
+                        <div class="col-4 col-lg-2 text-center">
+                            <span class="cart-item-price">$240</span>
+                        </div>
+                        <a href="#!" class="cart-item-close"><i class="icon-x"></i></a>
+                    </div>
+                </div>
+
+                <!-- cart item -->
+                <div class="cart-item">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-lg-6">
+                            <div class="media media-product">
+                                <a href="#!"><img src="../assets/images/demo/product-24.jpg" alt="Image"></a>
+                                <div class="media-body">
+                                    <h5 class="media-title">Closca helmet</h5>
+                                    <span class="small">Black</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-lg-2 text-center">
+                            <span class="cart-item-price">$132</span>
+                        </div>
+                        <div class="col-4 col-lg-2 text-center">
+                            <div class="counter">
+                                <span class="counter-minus icon-minus" field='qty-2'></span>
+                                <input type='text' name='qty-2' class="counter-value" value="1" min="1" max="10">
+                                <span class="counter-plus icon-plus" field='qty-2'></span>
+                            </div>
+                        </div>
+                        <div class="col-4 col-lg-2 text-center">
+                            <span class="cart-item-price">$132</span>
+                        </div>
+                        <a href="#!" class="cart-item-close"><i class="icon-x"></i></a>
+                    </div>
+                </div>
+
+                <!-- cart item -->
+                <div class="cart-item">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-lg-6">
+                            <div class="media media-product">
+                                <a href="#!"><img src="../assets/images/demo/product-25.jpg" alt="Image"></a>
+                                <div class="media-body">
+                                    <h5 class="media-title">Sigg Water Bottle</h5>
+                                    <span class="small">Gravel Black</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-lg-2 text-center">
+                            <span class="cart-item-price">$23</span>
+                        </div>
+                        <div class="col-4 col-lg-2 text-center">
+                            <div class="counter">
+                                <span class="counter-minus icon-minus" field='qty-3'></span>
+                                <input type='text' name='qty-3' class="counter-value" value="2" min="1" max="10">
+                                <span class="counter-plus icon-plus" field='qty-3'></span>
+                            </div>
+                        </div>
+                        <div class="col-4 col-lg-2 text-center">
+                            <span class="cart-item-price">$46</span>
+                        </div>
+                        <a href="#!" class="cart-item-close"><i class="icon-x"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card card-data bg-light">
+                    <div class="card-header py-2 px-3">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h3 class="fs-18 mb-0">Order Summary</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-minimal">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Subtotal
+                                <span>$418</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Shipping
+                                <span>Free</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <a href="#" class="text-primary action underline">Add coupon code</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer py-2">
+                        <ul class="list-group list-group-minimal">
+                            <li
+                                class="list-group-item d-flex justify-content-between align-items-center text-dark fs-18">
+                                Total
+                                <span>$418</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="checkout.html" style="border-radius: unset; font-size: 14px;"
+                    class="btn btn-lg btn-success btn-block mt-1">Checkout</a>
+            </div>
+
+        </div>
+    </div>
+</section>

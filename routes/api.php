@@ -46,23 +46,7 @@ Route::group([ 'prefix' => 'auth'], function (){
         Route::any('storecart/{id}', 'CartsController@store');
         Route::any ( 'found-all', 'FindController@all');
 
-        // Route::get('notification/{profileId}', 'UserController@notification');
-        // Route::get('notification/{profileId}/read', 'UserController@notificationRead');
-
-        // Route::get('user/{profileId}/follow', ['as' => 'user.follow', 'uses' => 'UserController@followUser']);
-        // Route::get('user/{profileId}/unfollow', ['as' => 'user.unfollow', 'uses' => 'UserController@unfollowUser']);
-        // Route::get('user/{profileId}', 'UserController@viewProfile');
-        // Route::get('user/{profileId}/show', 'UserController@show');
-        // Route::get('user/{profileId}/followers', 'UserController@followers');
-        // Route::get('user/{profileId}/followings', 'UserController@followings');
-        // // Route::get('/user/{profileId}/edit', 'UserController@edit');
-
-        // Route::get('user/{profileId}/edit',  ['as' => 'user.edit', 'uses' => 'UserController@edit']);
-        // // Route::get('user/edit',  ['as' => 'user.edit', 'uses' => 'UserController@edit']);
-        // Route::put('user/{user}/update',  ['as' => 'user.update', 'uses' => 'UserController@update']);
-
-        // Route::resource('user/{profileId}/edit',  ['as' => 'user.edit', 'uses' => 'UserController@edit']);
-        // Route::resource('user/{user}/update',  ['as' => 'user.update', 'uses' => 'UserController@update']);
+        
     });
 });
 
