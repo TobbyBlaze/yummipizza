@@ -2,11 +2,8 @@
 
 namespace App\Providers;
 
-<<<<<<< HEAD
 use Laravel\Passport\Passport;
 
-=======
->>>>>>> b1a1aa25e78498c4c154bbd983aed9c65cfbf707
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 

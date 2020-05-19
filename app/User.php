@@ -2,22 +2,15 @@
 
 namespace App;
 
-<<<<<<< HEAD
 use Laravel\Passport\HasApiTokens;
 
-=======
->>>>>>> b1a1aa25e78498c4c154bbd983aed9c65cfbf707
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-<<<<<<< HEAD
     use HasApiTokens, Notifiable;
-=======
-    use Notifiable;
->>>>>>> b1a1aa25e78498c4c154bbd983aed9c65cfbf707
 
     /**
      * The attributes that are mass assignable.
@@ -25,11 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-<<<<<<< HEAD
-        'status', 'name', 'email', 'password',
-=======
         'name', 'email', 'password',
->>>>>>> b1a1aa25e78498c4c154bbd983aed9c65cfbf707
     ];
 
     /**
@@ -53,7 +42,6 @@ class User extends Authenticatable
     public function goods(){
         return $this->hasMany('App\Good');
     }
-<<<<<<< HEAD
 
     public function carts(){
         return $this->hasMany('App\Cart');
@@ -63,6 +51,4 @@ class User extends Authenticatable
         return $this->hasMany('App\Review');
     }
 
-=======
->>>>>>> b1a1aa25e78498c4c154bbd983aed9c65cfbf707
 }

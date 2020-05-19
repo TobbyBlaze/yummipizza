@@ -42,11 +42,7 @@ return [
         ],
 
         'api' => [
-<<<<<<< HEAD
             'driver' => 'passport',
-=======
-            'driver' => 'token',
->>>>>>> b1a1aa25e78498c4c154bbd983aed9c65cfbf707
             'provider' => 'users',
             'hash' => false,
         ],
@@ -100,11 +96,7 @@ return [
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',
-<<<<<<< HEAD
             // 'expire' => 60,
-=======
-            'expire' => 60,
->>>>>>> b1a1aa25e78498c4c154bbd983aed9c65cfbf707
         ],
     ],
 
